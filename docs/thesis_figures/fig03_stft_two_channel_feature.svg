@@ -1,169 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="82.0mm" viewBox="0 0 1500 820">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#eef7ff"/>
-      <stop offset="0.55" stop-color="#f8fbff"/>
-      <stop offset="1" stop-color="#eef3ff"/>
-    </linearGradient>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#5a7390" flood-opacity="0.16"/>
-    </filter>
-    <marker id="arrow" markerWidth="13" markerHeight="13" refX="10" refY="6" orient="auto">
-      <path d="M2,2 L11,6 L2,10 Z" fill="#37658c"/>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L11,6 L2,10 Z" fill="#4a4a4a"/>
     </marker>
     <style>
-      text { font-family: "Microsoft YaHei", "Noto Sans CJK SC", "PingFang SC", Arial, sans-serif; }
-      .small { letter-spacing: 0.2px; }
+      text { font-family: "SimSun", "Songti SC", "Noto Serif CJK SC", serif; dominant-baseline: alphabetic; }
+      rect, path, line, polyline { vector-effect: non-scaling-stroke; }
     </style>
   </defs>
-  <rect width="1280" height="720" fill="url(#bg)"/>
-  <text x="640" y="54" text-anchor="middle" font-size="30" font-weight="800" fill="#112f4a">STFT 幅度-相位双通道特征构造</text>
-  <text x="640" y="88" text-anchor="middle" font-size="18" font-weight="500" fill="#5b7288">将非平稳水声波形映射为适合卷积网络处理的二维时频表示</text>
-  <path d="M92,257 C130,210 165,300 205,250 S280,205 320,256 S395,310 435,250 S510,205 550,257" fill="none" stroke="#2d6cdf" stroke-width="4"/><rect x="70" y="180" width="500" height="160" rx="20" fill="#ffffff" stroke="#2d6cdf" stroke-width="2.5" filter="url(#shadow)"/>
-<text x="320" y="216" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">固定长度波形 x[n]</text>
-<text x="320" y="250" text-anchor="middle" font-size="17" fill="#27445e">截断 / 零填充到 4096 点</text>
-<text x="320" y="274" text-anchor="middle" font-size="17" fill="#27445e">归一化后作为 STFT 输入</text><line x1="570" y1="260" x2="670" y2="260" stroke="#37658c" stroke-width="3" marker-end="url(#arrow)"/>
-<text x="620" y="250" text-anchor="middle" font-size="15" font-weight="500" fill="#48657a">分帧加窗</text><rect x="680" y="180" width="230" height="160" rx="20" fill="#f9fdff" stroke="#2d6cdf" stroke-width="2.5" filter="url(#shadow)"/>
-<text x="795" y="216" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">STFT</text>
-<text x="795" y="250" text-anchor="middle" font-size="17" fill="#27445e">nperseg=128</text>
-<text x="795" y="274" text-anchor="middle" font-size="17" fill="#27445e">noverlap=64</text>
-<text x="795" y="298" text-anchor="middle" font-size="17" fill="#27445e">复矩阵 Zxx</text><line x1="910" y1="260" x2="1005" y2="210" stroke="#37658c" stroke-width="3" marker-end="url(#arrow)"/>
-<text x="957" y="225" text-anchor="middle" font-size="15" font-weight="500" fill="#48657a">幅度</text><line x1="910" y1="260" x2="1005" y2="345" stroke="#37658c" stroke-width="3" marker-end="url(#arrow)"/>
-<text x="957" y="292" text-anchor="middle" font-size="15" font-weight="500" fill="#48657a">相位</text><rect x="1000" y="135" width="220" height="160" rx="20" fill="#eef7ff" stroke="#77a9dc" stroke-width="2.5" filter="url(#shadow)"/>
-<text x="1110" y="171" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">|Zxx|</text>
-<text x="1110" y="205" text-anchor="middle" font-size="17" fill="#27445e">谱能量纹理</text>
-<text x="1110" y="229" text-anchor="middle" font-size="17" fill="#27445e">谐波 / 频带结构</text><rect x="1015" y="315" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1039" y="315" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1063" y="315" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1087" y="315" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1111" y="315" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1135" y="315" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1159" y="315" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1183" y="315" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1015" y="333" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1039" y="333" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1063" y="333" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1087" y="333" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1111" y="333" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1135" y="333" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1159" y="333" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1183" y="333" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1015" y="351" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1039" y="351" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1063" y="351" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1087" y="351" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1111" y="351" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1135" y="351" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1159" y="351" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1183" y="351" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1015" y="369" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1039" y="369" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1063" y="369" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1087" y="369" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1111" y="369" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1135" y="369" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1159" y="369" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1183" y="369" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1015" y="387" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1039" y="387" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1063" y="387" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1087" y="387" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1111" y="387" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1135" y="387" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1159" y="387" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1183" y="387" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1015" y="405" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1039" y="405" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1063" y="405" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1087" y="405" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1111" y="405" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1135" y="405" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1159" y="405" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1183" y="405" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1015" y="423" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1039" y="423" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1063" y="423" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1087" y="423" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1111" y="423" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1135" y="423" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1159" y="423" width="22" height="16" rx="3" fill="#5aa9e6"/>
-<rect x="1183" y="423" width="22" height="16" rx="3" fill="#dff1ff"/>
-<rect x="1015" y="441" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1039" y="441" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1063" y="441" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1087" y="441" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1111" y="441" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1135" y="441" width="22" height="16" rx="3" fill="#2d6cdf"/>
-<rect x="1159" y="441" width="22" height="16" rx="3" fill="#a6d8ff"/>
-<rect x="1183" y="441" width="22" height="16" rx="3" fill="#2d6cdf"/><text x="1125" y="305" text-anchor="middle" font-size="16" font-weight="500" fill="#1f4e78">Magnitude</text><rect x="1000" y="370" width="220" height="160" rx="20" fill="#fff7ed" stroke="#f0a04b" stroke-width="2.5" filter="url(#shadow)"/>
-<text x="1110" y="406" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">∠Zxx</text>
-<text x="1110" y="440" text-anchor="middle" font-size="17" fill="#27445e">相位变化信息</text>
-<text x="1110" y="464" text-anchor="middle" font-size="17" fill="#27445e">缩放到稳定范围</text><rect x="1015" y="550" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1039" y="550" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1063" y="550" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1087" y="550" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1111" y="550" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1135" y="550" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1159" y="550" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1183" y="550" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1015" y="568" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1039" y="568" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1063" y="568" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1087" y="568" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1111" y="568" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1135" y="568" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1159" y="568" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1183" y="568" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1015" y="586" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1039" y="586" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1063" y="586" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1087" y="586" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1111" y="586" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1135" y="586" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1159" y="586" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1183" y="586" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1015" y="604" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1039" y="604" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1063" y="604" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1087" y="604" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1111" y="604" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1135" y="604" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1159" y="604" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1183" y="604" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1015" y="622" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1039" y="622" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1063" y="622" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1087" y="622" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1111" y="622" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1135" y="622" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1159" y="622" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1183" y="622" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1015" y="640" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1039" y="640" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1063" y="640" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1087" y="640" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1111" y="640" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1135" y="640" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1159" y="640" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1183" y="640" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1015" y="658" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1039" y="658" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1063" y="658" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1087" y="658" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1111" y="658" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1135" y="658" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1159" y="658" width="22" height="16" rx="3" fill="#ffd08a"/>
-<rect x="1183" y="658" width="22" height="16" rx="3" fill="#d96c1b"/>
-<rect x="1015" y="676" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1039" y="676" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1063" y="676" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1087" y="676" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1111" y="676" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1135" y="676" width="22" height="16" rx="3" fill="#f59e42"/>
-<rect x="1159" y="676" width="22" height="16" rx="3" fill="#fff1dd"/>
-<rect x="1183" y="676" width="22" height="16" rx="3" fill="#f59e42"/><text x="1125" y="540" text-anchor="middle" font-size="16" font-weight="500" fill="#9a4b10">Phase</text><line x1="1110" y1="295" x2="740" y2="570" stroke="#37658c" stroke-width="3" marker-end="url(#arrow)"/><line x1="1110" y1="530" x2="740" y2="610" stroke="#37658c" stroke-width="3" marker-end="url(#arrow)"/><rect x="550" y="555" width="300" height="95" rx="20" fill="#f0fff5" stroke="#52b879" stroke-width="2.5" filter="url(#shadow)"/>
-<text x="700" y="591" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">双通道张量</text>
-<text x="700" y="625" text-anchor="middle" font-size="17" fill="#27445e">stack([magnitude, phase])</text>
-<text x="700" y="649" text-anchor="middle" font-size="17" fill="#27445e">输入尺寸：2 x 64 x 64</text>
+  <rect width="1500" height="820" fill="#ffffff"/>
+  <rect x="676" y="30" width="148" height="38" rx="19" fill="#edf4fb" stroke="#2f5f8f" stroke-width="1.6"/><text x="750" y="56" text-anchor="middle" font-size="20" font-weight="700" fill="#2f5f8f">STFT 双通道特征构造</text><rect x="80" y="165" width="360" height="170" rx="8" fill="#f6f6f6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="260" y="204" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">固定长度波形 x[n]</text>
+<text x="260" y="241" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">长度 N = 4096</text>
+<text x="260" y="271" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">归一化后进行分帧加窗</text><path d="M120,270 C142,232 165,308 210,270 S255,232 300,270 S345,308 395,270" fill="none" stroke="#2f5f8f" stroke-width="3"/><line x1="440" y1="250" x2="565" y2="250" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/>
+<text x="502" y="240" text-anchor="middle" font-size="18" font-weight="400" fill="#4c4c4c">STFT</text><rect x="565" y="165" width="260" height="170" rx="8" fill="#edf4fb" stroke="#4a4a4a" stroke-width="2"/>
+<text x="695" y="204" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">复时频矩阵 Zxx</text>
+<text x="695" y="241" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">nperseg = 128</text>
+<text x="695" y="271" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">noverlap = 64</text>
+<text x="695" y="301" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">包含幅度与相位</text><line x1="825" y1="230" x2="960" y2="165" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/>
+<text x="892" y="187" text-anchor="middle" font-size="18" font-weight="400" fill="#4c4c4c">abs</text><line x1="825" y1="275" x2="960" y2="420" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/>
+<text x="892" y="337" text-anchor="middle" font-size="18" font-weight="400" fill="#4c4c4c">angle</text><rect x="960" y="100" width="330" height="220" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="1125" y="139" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">幅度通道 |Zxx|</text>
+<text x="1125" y="176" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">反映能量分布</text>
+<text x="1125" y="206" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">强调谐波与频带结构</text><rect x="1018" y="190" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="1044" y="190" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="1070" y="190" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="1096" y="190" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="1122" y="190" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="1148" y="190" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="1174" y="190" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="1200" y="190" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="1018" y="212" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="1044" y="212" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="1070" y="212" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="1096" y="212" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="1122" y="212" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="1148" y="212" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="1174" y="212" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="1200" y="212" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="1018" y="234" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="1044" y="234" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="1070" y="234" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="1096" y="234" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="1122" y="234" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="1148" y="234" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="1174" y="234" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="1200" y="234" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="1018" y="256" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="1044" y="256" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="1070" y="256" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="1096" y="256" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="1122" y="256" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="1148" y="256" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="1174" y="256" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="1200" y="256" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="1018" y="278" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="1044" y="278" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="1070" y="278" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="1096" y="278" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="1122" y="278" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="1148" y="278" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="1174" y="278" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="1200" y="278" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="1018" y="300" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="1044" y="300" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="1070" y="300" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="1096" y="300" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="1122" y="300" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="1148" y="300" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="1174" y="300" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="1200" y="300" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="1018" y="322" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="1044" y="322" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="1070" y="322" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="1096" y="322" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="1122" y="322" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="1148" y="322" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="1174" y="322" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="1200" y="322" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/><rect x="960" y="390" width="330" height="220" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="1125" y="429" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">相位通道 ∠Zxx</text>
+<text x="1125" y="466" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">反映相位变化</text>
+<text x="1125" y="496" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">缩放后参与训练</text><rect x="1018" y="480" width="24" height="20" fill="#e6aa70" stroke="#ffffff" stroke-width="1"/>
+<rect x="1044" y="480" width="24" height="20" fill="#f7d8b7" stroke="#ffffff" stroke-width="1"/>
+<rect x="1070" y="480" width="24" height="20" fill="#fffaf4" stroke="#ffffff" stroke-width="1"/>
+<rect x="1096" y="480" width="24" height="20" fill="#b8793d" stroke="#ffffff" stroke-width="1"/>
+<rect x="1122" y="480" width="24" height="20" fill="#e6aa70" stroke="#ffffff" stroke-width="1"/>
+<rect x="1148" y="480" width="24" height="20" fill="#f7d8b7" stroke="#ffffff" stroke-width="1"/>
+<rect x="1174" y="480" width="24" height="20" fill="#fffaf4" stroke="#ffffff" stroke-width="1"/>
+<rect x="1200" y="480" width="24" height="20" fill="#b8793d" stroke="#ffffff" stroke-width="1"/>
+<rect x="1018" y="502" width="24" height="20" fill="#fffaf4" stroke="#ffffff" stroke-width="1"/>
+<rect x="1044" y="502" width="24" height="20" fill="#b8793d" stroke="#ffffff" stroke-width="1"/>
+<rect x="1070" y="502" width="24" height="20" fill="#e6aa70" stroke="#ffffff" stroke-width="1"/>
+<rect x="1096" y="502" width="24" height="20" fill="#f7d8b7" stroke="#ffffff" stroke-width="1"/>
+<rect x="1122" y="502" width="24" height="20" fill="#fffaf4" stroke="#ffffff" stroke-width="1"/>
+<rect x="1148" y="502" width="24" height="20" fill="#b8793d" stroke="#ffffff" stroke-width="1"/>
+<rect x="1174" y="502" width="24" height="20" fill="#e6aa70" stroke="#ffffff" stroke-width="1"/>
+<rect x="1200" y="502" width="24" height="20" fill="#f7d8b7" stroke="#ffffff" stroke-width="1"/>
+<rect x="1018" y="524" width="24" height="20" fill="#e6aa70" stroke="#ffffff" stroke-width="1"/>
+<rect x="1044" y="524" width="24" height="20" fill="#f7d8b7" stroke="#ffffff" stroke-width="1"/>
+<rect x="1070" y="524" width="24" height="20" fill="#fffaf4" stroke="#ffffff" stroke-width="1"/>
+<rect x="1096" y="524" width="24" height="20" fill="#b8793d" stroke="#ffffff" stroke-width="1"/>
+<rect x="1122" y="524" width="24" height="20" fill="#e6aa70" stroke="#ffffff" stroke-width="1"/>
+<rect x="1148" y="524" width="24" height="20" fill="#f7d8b7" stroke="#ffffff" stroke-width="1"/>
+<rect x="1174" y="524" width="24" height="20" fill="#fffaf4" stroke="#ffffff" stroke-width="1"/>
+<rect x="1200" y="524" width="24" height="20" fill="#b8793d" stroke="#ffffff" stroke-width="1"/>
+<rect x="1018" y="546" width="24" height="20" fill="#fffaf4" stroke="#ffffff" stroke-width="1"/>
+<rect x="1044" y="546" width="24" height="20" fill="#b8793d" stroke="#ffffff" stroke-width="1"/>
+<rect x="1070" y="546" width="24" height="20" fill="#e6aa70" stroke="#ffffff" stroke-width="1"/>
+<rect x="1096" y="546" width="24" height="20" fill="#f7d8b7" stroke="#ffffff" stroke-width="1"/>
+<rect x="1122" y="546" width="24" height="20" fill="#fffaf4" stroke="#ffffff" stroke-width="1"/>
+<rect x="1148" y="546" width="24" height="20" fill="#b8793d" stroke="#ffffff" stroke-width="1"/>
+<rect x="1174" y="546" width="24" height="20" fill="#e6aa70" stroke="#ffffff" stroke-width="1"/>
+<rect x="1200" y="546" width="24" height="20" fill="#f7d8b7" stroke="#ffffff" stroke-width="1"/>
+<rect x="1018" y="568" width="24" height="20" fill="#e6aa70" stroke="#ffffff" stroke-width="1"/>
+<rect x="1044" y="568" width="24" height="20" fill="#f7d8b7" stroke="#ffffff" stroke-width="1"/>
+<rect x="1070" y="568" width="24" height="20" fill="#fffaf4" stroke="#ffffff" stroke-width="1"/>
+<rect x="1096" y="568" width="24" height="20" fill="#b8793d" stroke="#ffffff" stroke-width="1"/>
+<rect x="1122" y="568" width="24" height="20" fill="#e6aa70" stroke="#ffffff" stroke-width="1"/>
+<rect x="1148" y="568" width="24" height="20" fill="#f7d8b7" stroke="#ffffff" stroke-width="1"/>
+<rect x="1174" y="568" width="24" height="20" fill="#fffaf4" stroke="#ffffff" stroke-width="1"/>
+<rect x="1200" y="568" width="24" height="20" fill="#b8793d" stroke="#ffffff" stroke-width="1"/>
+<rect x="1018" y="590" width="24" height="20" fill="#fffaf4" stroke="#ffffff" stroke-width="1"/>
+<rect x="1044" y="590" width="24" height="20" fill="#b8793d" stroke="#ffffff" stroke-width="1"/>
+<rect x="1070" y="590" width="24" height="20" fill="#e6aa70" stroke="#ffffff" stroke-width="1"/>
+<rect x="1096" y="590" width="24" height="20" fill="#f7d8b7" stroke="#ffffff" stroke-width="1"/>
+<rect x="1122" y="590" width="24" height="20" fill="#fffaf4" stroke="#ffffff" stroke-width="1"/>
+<rect x="1148" y="590" width="24" height="20" fill="#b8793d" stroke="#ffffff" stroke-width="1"/>
+<rect x="1174" y="590" width="24" height="20" fill="#e6aa70" stroke="#ffffff" stroke-width="1"/>
+<rect x="1200" y="590" width="24" height="20" fill="#f7d8b7" stroke="#ffffff" stroke-width="1"/>
+<rect x="1018" y="612" width="24" height="20" fill="#e6aa70" stroke="#ffffff" stroke-width="1"/>
+<rect x="1044" y="612" width="24" height="20" fill="#f7d8b7" stroke="#ffffff" stroke-width="1"/>
+<rect x="1070" y="612" width="24" height="20" fill="#fffaf4" stroke="#ffffff" stroke-width="1"/>
+<rect x="1096" y="612" width="24" height="20" fill="#b8793d" stroke="#ffffff" stroke-width="1"/>
+<rect x="1122" y="612" width="24" height="20" fill="#e6aa70" stroke="#ffffff" stroke-width="1"/>
+<rect x="1148" y="612" width="24" height="20" fill="#f7d8b7" stroke="#ffffff" stroke-width="1"/>
+<rect x="1174" y="612" width="24" height="20" fill="#fffaf4" stroke="#ffffff" stroke-width="1"/>
+<rect x="1200" y="612" width="24" height="20" fill="#b8793d" stroke="#ffffff" stroke-width="1"/><line x1="1125" y1="320" x2="735" y2="635" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="1125" y1="610" x2="735" y2="675" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><rect x="545" y="610" width="360" height="105" rx="8" fill="#eef7ef" stroke="#4a4a4a" stroke-width="2"/>
+<text x="725" y="649" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">双通道谱图张量</text>
+<text x="725" y="686" text-anchor="middle" font-size="20" font-weight="400" fill="#4c4c4c">stack([magnitude, phase])，尺寸为 2 x 64 x 64</text>
 </svg>
