@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef7ff"/>
+      <stop offset="0.55" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#eef3ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#5a7390" flood-opacity="0.16"/>
+    </filter>
+    <marker id="arrow" markerWidth="13" markerHeight="13" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L11,6 L2,10 Z" fill="#37658c"/>
+    </marker>
+    <style>
+      text { font-family: "Microsoft YaHei", "Noto Sans CJK SC", "PingFang SC", Arial, sans-serif; }
+      .small { letter-spacing: 0.2px; }
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <text x="640" y="54" text-anchor="middle" font-size="30" font-weight="800" fill="#112f4a">水声目标识别研究总体技术路线</text>
+  <text x="640" y="88" text-anchor="middle" font-size="18" font-weight="500" fill="#5b7288">从离线波形数据到融合识别模型，再到树莓派边缘端部署</text>
+  <rect x="55" y="170" width="200" height="155" rx="20" fill="#ffffff" stroke="#2d6cdf" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="155" y="206" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">数据层</text>
+<text x="155" y="240" text-anchor="middle" font-size="17" fill="#27445e">11k8m / .mat</text>
+<text x="155" y="264" text-anchor="middle" font-size="17" fill="#27445e">4096 点固定长度</text>
+<text x="155" y="288" text-anchor="middle" font-size="17" fill="#27445e">9 类标签映射</text><rect x="300" y="170" width="200" height="155" rx="20" fill="#f9fdff" stroke="#2d6cdf" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="400" y="206" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">特征层</text>
+<text x="400" y="240" text-anchor="middle" font-size="17" fill="#27445e">时域归一化</text>
+<text x="400" y="264" text-anchor="middle" font-size="17" fill="#27445e">STFT 幅度</text>
+<text x="400" y="288" text-anchor="middle" font-size="17" fill="#27445e">STFT 相位</text><rect x="545" y="170" width="200" height="155" rx="20" fill="#ffffff" stroke="#2d6cdf" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="645" y="206" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">模型层</text>
+<text x="645" y="240" text-anchor="middle" font-size="17" fill="#27445e">TinyCNN</text>
+<text x="645" y="264" text-anchor="middle" font-size="17" fill="#27445e">ResNet18</text>
+<text x="645" y="288" text-anchor="middle" font-size="17" fill="#27445e">RNN1D / Fusion</text><rect x="790" y="170" width="200" height="155" rx="20" fill="#f9fdff" stroke="#2d6cdf" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="890" y="206" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">评估层</text>
+<text x="890" y="240" text-anchor="middle" font-size="17" fill="#27445e">验证 / 测试</text>
+<text x="890" y="264" text-anchor="middle" font-size="17" fill="#27445e">AWGN 注入</text>
+<text x="890" y="288" text-anchor="middle" font-size="17" fill="#27445e">跨 SNR 曲线</text><rect x="1035" y="170" width="200" height="155" rx="20" fill="#ffffff" stroke="#2d6cdf" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="1135" y="206" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">部署层</text>
+<text x="1135" y="240" text-anchor="middle" font-size="17" fill="#27445e">ONNX 导出</text>
+<text x="1135" y="264" text-anchor="middle" font-size="17" fill="#27445e">树莓派推理</text>
+<text x="1135" y="288" text-anchor="middle" font-size="17" fill="#27445e">UI 展示</text><line x1="255" y1="248" x2="300" y2="248" stroke="#37658c" stroke-width="3" marker-end="url(#arrow)"/><line x1="500" y1="248" x2="545" y2="248" stroke="#37658c" stroke-width="3" marker-end="url(#arrow)"/><line x1="745" y1="248" x2="790" y2="248" stroke="#37658c" stroke-width="3" marker-end="url(#arrow)"/><line x1="990" y1="248" x2="1035" y2="248" stroke="#37658c" stroke-width="3" marker-end="url(#arrow)"/><rect x="155" y="430" width="300" height="135" rx="20" fill="#eef7ff" stroke="#77a9dc" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="305" y="466" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">论文主线</text>
+<text x="305" y="500" text-anchor="middle" font-size="17" fill="#27445e">算法对比</text>
+<text x="305" y="524" text-anchor="middle" font-size="17" fill="#27445e">时频融合</text>
+<text x="305" y="548" text-anchor="middle" font-size="17" fill="#27445e">噪声鲁棒性</text><rect x="495" y="430" width="300" height="135" rx="20" fill="#fff7ed" stroke="#f0a04b" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="645" y="466" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">工程主线</text>
+<text x="645" y="500" text-anchor="middle" font-size="17" fill="#27445e">端侧轻量化</text>
+<text x="645" y="524" text-anchor="middle" font-size="17" fill="#27445e">模型格式迁移</text>
+<text x="645" y="548" text-anchor="middle" font-size="17" fill="#27445e">采集-推理-展示闭环</text><rect x="835" y="430" width="300" height="135" rx="20" fill="#f0fff5" stroke="#52b879" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="985" y="466" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">预期成果</text>
+<text x="985" y="500" text-anchor="middle" font-size="17" fill="#27445e">可复现实验流程</text>
+<text x="985" y="524" text-anchor="middle" font-size="17" fill="#27445e">论文图表素材</text>
+<text x="985" y="548" text-anchor="middle" font-size="17" fill="#27445e">嵌入式样机路线</text>
+</svg>

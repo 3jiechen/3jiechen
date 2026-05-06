@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef7ff"/>
+      <stop offset="0.55" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#eef3ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#5a7390" flood-opacity="0.16"/>
+    </filter>
+    <marker id="arrow" markerWidth="13" markerHeight="13" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L11,6 L2,10 Z" fill="#37658c"/>
+    </marker>
+    <style>
+      text { font-family: "Microsoft YaHei", "Noto Sans CJK SC", "PingFang SC", Arial, sans-serif; }
+      .small { letter-spacing: 0.2px; }
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <text x="640" y="54" text-anchor="middle" font-size="30" font-weight="800" fill="#112f4a">树莓派端水声识别系统部署架构</text>
+  <text x="640" y="88" text-anchor="middle" font-size="18" font-weight="500" fill="#5b7288">训练端负责模型生成，边缘端负责采集、预处理、推理与结果展示</text>
+  <rect x="60" y="150" width="245" height="135" rx="20" fill="#ffffff" stroke="#2d6cdf" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="182" y="186" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">PC 训练端</text>
+<text x="182" y="220" text-anchor="middle" font-size="17" fill="#27445e">PyTorch 训练</text>
+<text x="182" y="244" text-anchor="middle" font-size="17" fill="#27445e">保存 best checkpoint</text>
+<text x="182" y="268" text-anchor="middle" font-size="17" fill="#27445e">torch.onnx.export</text><line x1="305" y1="218" x2="425" y2="218" stroke="#37658c" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="365" y="208" text-anchor="middle" font-size="15" font-weight="500" fill="#48657a">ONNX 文件</text><rect x="425" y="150" width="245" height="135" rx="20" fill="#f9fdff" stroke="#2d6cdf" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="547" y="186" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">模型迁移</text>
+<text x="547" y="220" text-anchor="middle" font-size="17" fill="#27445e">算子兼容检查</text>
+<text x="547" y="244" text-anchor="middle" font-size="17" fill="#27445e">输入尺寸固定</text>
+<text x="547" y="268" text-anchor="middle" font-size="17" fill="#27445e">可选量化</text><line x1="670" y1="218" x2="790" y2="218" stroke="#37658c" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="730" y="208" text-anchor="middle" font-size="15" font-weight="500" fill="#48657a">部署</text><rect x="790" y="150" width="395" height="135" rx="20" fill="#ffffff" stroke="#2d6cdf" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="987" y="186" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">树莓派推理端</text>
+<text x="987" y="220" text-anchor="middle" font-size="17" fill="#27445e">ONNX Runtime / OpenCV DNN</text>
+<text x="987" y="244" text-anchor="middle" font-size="17" fill="#27445e">CPU 推理</text>
+<text x="987" y="268" text-anchor="middle" font-size="17" fill="#27445e">日志与异常恢复</text><rect x="120" y="410" width="210" height="120" rx="20" fill="#eef7ff" stroke="#77a9dc" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="225" y="446" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">采集层</text>
+<text x="225" y="480" text-anchor="middle" font-size="17" fill="#27445e">文件回放</text>
+<text x="225" y="504" text-anchor="middle" font-size="17" fill="#27445e">水听器 / ADC</text>
+<text x="225" y="528" text-anchor="middle" font-size="17" fill="#27445e">缓冲区</text><rect x="390" y="410" width="210" height="120" rx="20" fill="#fff7ed" stroke="#f0a04b" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="495" y="446" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">预处理层</text>
+<text x="495" y="480" text-anchor="middle" font-size="17" fill="#27445e">4096 点切片</text>
+<text x="495" y="504" text-anchor="middle" font-size="17" fill="#27445e">归一化</text>
+<text x="495" y="528" text-anchor="middle" font-size="17" fill="#27445e">STFT</text><rect x="660" y="410" width="210" height="120" rx="20" fill="#f0fff5" stroke="#52b879" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="765" y="446" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">推理层</text>
+<text x="765" y="480" text-anchor="middle" font-size="17" fill="#27445e">ONNX 输入张量</text>
+<text x="765" y="504" text-anchor="middle" font-size="17" fill="#27445e">Top-k 概率</text>
+<text x="765" y="528" text-anchor="middle" font-size="17" fill="#27445e">延迟统计</text><rect x="930" y="410" width="210" height="120" rx="20" fill="#ffffff" stroke="#2d6cdf" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="1035" y="446" text-anchor="middle" font-size="22" font-weight="700" fill="#14395b">应用层</text>
+<text x="1035" y="480" text-anchor="middle" font-size="17" fill="#27445e">UI 展示</text>
+<text x="1035" y="504" text-anchor="middle" font-size="17" fill="#27445e">CSV 记录</text>
+<text x="1035" y="528" text-anchor="middle" font-size="17" fill="#27445e">告警提示</text><line x1="330" y1="470" x2="390" y2="470" stroke="#37658c" stroke-width="3" marker-end="url(#arrow)"/><line x1="600" y1="470" x2="660" y2="470" stroke="#37658c" stroke-width="3" marker-end="url(#arrow)"/><line x1="870" y1="470" x2="930" y2="470" stroke="#37658c" stroke-width="3" marker-end="url(#arrow)"/><rect x="190" y="610" width="220" height="48" rx="24" fill="#e9f4ff" stroke="#7fb2e5" stroke-width="1.6"/><text x="300" y="641" text-anchor="middle" font-size="17" font-weight="500" fill="#1f4e78">端侧低时延</text><rect x="530" y="610" width="220" height="48" rx="24" fill="#e9f4ff" stroke="#7fb2e5" stroke-width="1.6"/><text x="640" y="641" text-anchor="middle" font-size="17" font-weight="500" fill="#1f4e78">资源受限可运行</text><rect x="870" y="610" width="220" height="48" rx="24" fill="#e9f4ff" stroke="#7fb2e5" stroke-width="1.6"/><text x="980" y="641" text-anchor="middle" font-size="17" font-weight="500" fill="#1f4e78">采集-推理-展示闭环</text>
+</svg>
