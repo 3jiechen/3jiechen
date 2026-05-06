@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="860" viewBox="0 0 1440 860">
+  <defs>
+    <style>
+      .title { font: 700 30px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #17324d; }
+      .subtitle { font: 400 16px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #62778b; }
+      .label { font: 600 20px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #17324d; }
+      .small { font: 400 15px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #4f697f; }
+      .arch { fill: #f7fbff; stroke: #87a4be; stroke-width: 2.2; rx: 18; ry: 18; }
+      .ui { fill: #fbfdff; stroke: #b9cada; stroke-width: 2; rx: 18; ry: 18; }
+      .pi { fill: #eefaf7; stroke: #31a18b; stroke-width: 2.4; rx: 18; ry: 18; }
+      .arrow { stroke: #5d7b97; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#5d7b97"/>
+    </marker>
+  </defs>
+
+  <rect width="1440" height="860" fill="#ffffff"/>
+  <text x="720" y="58" text-anchor="middle" class="title">树莓派嵌入式部署与界面设计示意图</text>
+  <text x="720" y="88" text-anchor="middle" class="subtitle">包含采集、预处理、ONNX 推理、结果显示与日志记录的边缘侧一体化方案</text>
+
+  <rect x="70" y="150" width="600" height="610" class="arch"/>
+  <text x="370" y="192" text-anchor="middle" class="label">树莓派端软件架构</text>
+
+  <rect x="140" y="240" width="170" height="96" class="arch"/>
+  <text x="225" y="278" text-anchor="middle" class="label">采集层</text>
+  <text x="225" y="306" text-anchor="middle" class="small">水听器 / 文件回放</text>
+
+  <rect x="380" y="240" width="170" height="96" class="arch"/>
+  <text x="465" y="278" text-anchor="middle" class="label">数据缓冲</text>
+  <text x="465" y="306" text-anchor="middle" class="small">滑窗 / 队列 / 时间戳</text>
+
+  <rect x="260" y="390" width="170" height="96" class="arch"/>
+  <text x="345" y="428" text-anchor="middle" class="label">预处理层</text>
+  <text x="345" y="456" text-anchor="middle" class="small">归一化 + STFT</text>
+
+  <rect x="260" y="540" width="170" height="110" class="pi"/>
+  <text x="345" y="580" text-anchor="middle" class="label">ONNX Runtime</text>
+  <text x="345" y="608" text-anchor="middle" class="small">模型推理核心</text>
+  <text x="345" y="634" text-anchor="middle" class="small">ARM 平台部署</text>
+
+  <rect x="140" y="680" width="170" height="60" class="arch"/>
+  <text x="225" y="717" text-anchor="middle" class="small">结果显示</text>
+  <rect x="380" y="680" width="170" height="60" class="arch"/>
+  <text x="465" y="717" text-anchor="middle" class="small">CSV / 日志记录</text>
+
+  <line x1="310" y1="288" x2="380" y2="288" class="arrow"/>
+  <line x1="465" y1="336" x2="345" y2="390" class="arrow"/>
+  <line x1="345" y1="486" x2="345" y2="540" class="arrow"/>
+  <line x1="345" y1="650" x2="225" y2="680" class="arrow"/>
+  <line x1="345" y1="650" x2="465" y2="680" class="arrow"/>
+
+  <rect x="740" y="150" width="620" height="610" class="ui"/>
+  <text x="1050" y="192" text-anchor="middle" class="label">上位显示界面（UI）示意</text>
+
+  <rect x="790" y="240" width="250" height="180" fill="#f5faff" stroke="#8daac5" stroke-width="2" rx="14"/>
+  <text x="915" y="272" text-anchor="middle" class="small">波形显示</text>
+  <path d="M820 340 C845 300, 875 385, 905 330 S970 280, 1010 350" stroke="#3e84cd" stroke-width="4" fill="none"/>
+
+  <rect x="1070" y="240" width="230" height="180" fill="#f2fcf9" stroke="#53b39d" stroke-width="2" rx="14"/>
+  <text x="1185" y="272" text-anchor="middle" class="small">时频图显示</text>
+  <rect x="1100" y="300" width="170" height="90" fill="#d8f0ea"/>
+  <rect x="1120" y="315" width="28" height="60" fill="#77c9b8"/>
+  <rect x="1154" y="312" width="28" height="63" fill="#4cb8a0"/>
+  <rect x="1188" y="305" width="28" height="70" fill="#2f9d88"/>
+  <rect x="1222" y="322" width="28" height="53" fill="#8fdacb"/>
+
+  <rect x="790" y="450" width="510" height="120" fill="#f9fbfe" stroke="#c0cfdd" stroke-width="2" rx="14"/>
+  <text x="850" y="485" class="small">识别类别：</text>
+  <text x="980" y="485" class="label">目标类别 3</text>
+  <text x="850" y="525" class="small">置信度：</text>
+  <rect x="940" y="505" width="280" height="20" fill="#dce8f5" rx="10"/>
+  <rect x="940" y="505" width="214" height="20" fill="#4c8dce" rx="10"/>
+  <text x="1235" y="520" class="small">76.4%</text>
+
+  <rect x="790" y="600" width="120" height="52" fill="#2f9d88" rx="12"/>
+  <text x="850" y="632" text-anchor="middle" style="font: 600 18px 'Microsoft YaHei', Arial, sans-serif; fill: #ffffff;">开始</text>
+  <rect x="930" y="600" width="120" height="52" fill="#4c8dce" rx="12"/>
+  <text x="990" y="632" text-anchor="middle" style="font: 600 18px 'Microsoft YaHei', Arial, sans-serif; fill: #ffffff;">停止</text>
+  <rect x="1070" y="600" width="120" height="52" fill="#d98a2a" rx="12"/>
+  <text x="1130" y="632" text-anchor="middle" style="font: 600 18px 'Microsoft YaHei', Arial, sans-serif; fill: #ffffff;">离线识别</text>
+  <rect x="1210" y="600" width="120" height="52" fill="#7a6ed6" rx="12"/>
+  <text x="1270" y="632" text-anchor="middle" style="font: 600 18px 'Microsoft YaHei', Arial, sans-serif; fill: #ffffff;">实时模式</text>
+</svg>

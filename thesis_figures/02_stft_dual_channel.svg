@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+  <defs>
+    <style>
+      .title { font: 700 30px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #17324d; }
+      .subtitle { font: 400 16px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #5e7288; }
+      .label { font: 600 20px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #17324d; }
+      .small { font: 400 15px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #466179; }
+      .box { fill: #f8fbfe; stroke: #83a2c1; stroke-width: 2.2; rx: 18; ry: 18; }
+      .arrow { stroke: #587896; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+    </style>
+    <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d6efd"/>
+      <stop offset="100%" stop-color="#6ea8fe"/>
+    </linearGradient>
+    <linearGradient id="mag" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#123d6d"/>
+      <stop offset="50%" stop-color="#4f8fd2"/>
+      <stop offset="100%" stop-color="#c8e1fb"/>
+    </linearGradient>
+    <linearGradient id="phase" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c6b58"/>
+      <stop offset="50%" stop-color="#2db99f"/>
+      <stop offset="100%" stop-color="#d9fbf4"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#587896"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="760" fill="#ffffff"/>
+  <text x="700" y="58" text-anchor="middle" class="title">STFT 双通道特征构造示意图</text>
+  <text x="700" y="88" text-anchor="middle" class="subtitle">将 4096 点一维水声波形映射为适合卷积网络输入的 2 × 64 × 64 时频张量</text>
+
+  <rect x="70" y="150" width="320" height="470" class="box"/>
+  <text x="230" y="190" text-anchor="middle" class="label">原始波形</text>
+  <text x="230" y="220" text-anchor="middle" class="small">x[n], 长度 = 4096</text>
+  <line x1="115" y1="520" x2="350" y2="520" stroke="#9fb2c5" stroke-width="2"/>
+  <line x1="120" y1="300" x2="120" y2="540" stroke="#9fb2c5" stroke-width="2"/>
+  <path d="M125 410 C145 300,175 520,205 390 S270 310,305 430 S330 500,345 410" stroke="url(#grad1)" stroke-width="5" fill="none"/>
+  <rect x="147" y="270" width="52" height="250" fill="#d8e8fb" opacity="0.7"/>
+  <rect x="205" y="270" width="52" height="250" fill="#bfd7f7" opacity="0.7"/>
+  <rect x="263" y="270" width="52" height="250" fill="#a3c5f1" opacity="0.7"/>
+  <text x="230" y="575" text-anchor="middle" class="small">固定长度、归一化后送入 STFT 模块</text>
+
+  <rect x="470" y="150" width="430" height="470" class="box"/>
+  <text x="685" y="190" text-anchor="middle" class="label">分帧、加窗与短时傅里叶变换</text>
+  <text x="685" y="220" text-anchor="middle" class="small">窗长 nperseg = 128，重叠 noverlap = 64</text>
+  <rect x="530" y="280" width="110" height="200" fill="#e7f0fa" stroke="#82a3c2" stroke-width="2" rx="14"/>
+  <text x="585" y="350" text-anchor="middle" class="label">分帧</text>
+  <text x="585" y="380" text-anchor="middle" class="small">滑动窗口</text>
+  <line x1="390" y1="385" x2="470" y2="385" class="arrow"/>
+
+  <rect x="670" y="280" width="110" height="200" fill="#edf8ff" stroke="#63a0d7" stroke-width="2" rx="14"/>
+  <text x="725" y="350" text-anchor="middle" class="label">加窗</text>
+  <text x="725" y="380" text-anchor="middle" class="small">抑制频谱泄漏</text>
+  <line x1="640" y1="385" x2="670" y2="385" class="arrow"/>
+
+  <rect x="810" y="280" width="110" height="200" fill="#eefaf7" stroke="#3aa58b" stroke-width="2" rx="14"/>
+  <text x="865" y="350" text-anchor="middle" class="label">FFT</text>
+  <text x="865" y="380" text-anchor="middle" class="small">复时频矩阵</text>
+  <line x1="780" y1="385" x2="810" y2="385" class="arrow"/>
+
+  <text x="685" y="555" text-anchor="middle" class="small">得到复数谱 Zxx，再分别提取幅度和相位</text>
+
+  <rect x="980" y="150" width="350" height="470" class="box"/>
+  <text x="1155" y="190" text-anchor="middle" class="label">双通道时频张量</text>
+  <text x="1155" y="220" text-anchor="middle" class="small">Tensor Shape = (2, 64, 64)</text>
+
+  <rect x="1035" y="270" width="110" height="110" fill="url(#mag)" stroke="#5b8fc6" stroke-width="2"/>
+  <rect x="1165" y="270" width="110" height="110" fill="url(#phase)" stroke="#37a590" stroke-width="2"/>
+  <rect x="1055" y="400" width="110" height="110" fill="url(#mag)" opacity="0.6" stroke="#5b8fc6" stroke-width="2"/>
+  <rect x="1185" y="400" width="110" height="110" fill="url(#phase)" opacity="0.6" stroke="#37a590" stroke-width="2"/>
+  <text x="1090" y="400" text-anchor="middle" class="small">幅度通道</text>
+  <text x="1090" y="532" text-anchor="middle" class="small">|X|</text>
+  <text x="1220" y="400" text-anchor="middle" class="small">相位通道</text>
+  <text x="1220" y="532" text-anchor="middle" class="small">angle(X)</text>
+  <line x1="900" y1="385" x2="980" y2="385" class="arrow"/>
+  <text x="1155" y="575" text-anchor="middle" class="small">作为 TinyCNN / ResNet18 频谱分支输入</text>
+</svg>

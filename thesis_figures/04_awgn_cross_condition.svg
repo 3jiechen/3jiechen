@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1420" height="780" viewBox="0 0 1420 780">
+  <defs>
+    <style>
+      .title { font: 700 30px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #17324d; }
+      .subtitle { font: 400 16px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #61768b; }
+      .label { font: 600 20px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #17324d; }
+      .small { font: 400 15px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #4c677f; }
+      .box { fill: #f8fbfe; stroke: #88a5c0; stroke-width: 2.2; rx: 18; ry: 18; }
+      .fusion { fill: #fff4e8; stroke: #d38b28; stroke-width: 2.2; rx: 18; ry: 18; }
+      .arrow { stroke: #5c7a97; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#5c7a97"/>
+    </marker>
+  </defs>
+
+  <rect width="1420" height="780" fill="#ffffff"/>
+  <text x="710" y="58" text-anchor="middle" class="title">AWGN 跨条件评测流程图</text>
+  <text x="710" y="88" text-anchor="middle" class="subtitle">通过测试阶段的可控噪声注入，比较不同模型在低信噪比条件下的鲁棒性</text>
+
+  <rect x="70" y="210" width="220" height="110" class="box"/>
+  <text x="180" y="252" text-anchor="middle" class="label">测试波形</text>
+  <text x="180" y="282" text-anchor="middle" class="small">无噪声基准样本</text>
+
+  <rect x="350" y="210" width="230" height="110" class="box"/>
+  <text x="465" y="252" text-anchor="middle" class="label">注入 AWGN</text>
+  <text x="465" y="282" text-anchor="middle" class="small">控制噪声强度与随机性</text>
+
+  <rect x="640" y="210" width="240" height="110" class="box"/>
+  <text x="760" y="252" text-anchor="middle" class="label">设定 SNR 区间</text>
+  <text x="760" y="282" text-anchor="middle" class="small">如 -10 dB ~ 20 dB</text>
+
+  <rect x="940" y="210" width="210" height="110" class="box"/>
+  <text x="1045" y="252" text-anchor="middle" class="label">模型推理</text>
+  <text x="1045" y="282" text-anchor="middle" class="small">TinyCNN / ResNet18 / RNN / Fusion</text>
+
+  <rect x="1190" y="210" width="170" height="110" class="fusion"/>
+  <text x="1275" y="252" text-anchor="middle" class="label">指标统计</text>
+  <text x="1275" y="282" text-anchor="middle" class="small">Accuracy / F1</text>
+
+  <line x1="290" y1="265" x2="350" y2="265" class="arrow"/>
+  <line x1="580" y1="265" x2="640" y2="265" class="arrow"/>
+  <line x1="880" y1="265" x2="940" y2="265" class="arrow"/>
+  <line x1="1150" y1="265" x2="1190" y2="265" class="arrow"/>
+
+  <rect x="90" y="420" width="390" height="250" class="box"/>
+  <text x="285" y="462" text-anchor="middle" class="label">评测要点</text>
+  <text x="130" y="515" class="small">1. 比较不同模型在低 SNR 下的准确率下降幅度</text>
+  <text x="130" y="555" class="small">2. 观察融合模型是否保持更高性能裕度</text>
+  <text x="130" y="595" class="small">3. 分析谱域分支与时域分支的互补关系</text>
+  <text x="130" y="635" class="small">4. 为后续嵌入式实装提供鲁棒性依据</text>
+
+  <rect x="560" y="390" width="760" height="300" class="box"/>
+  <text x="940" y="432" text-anchor="middle" class="label">SNR - 性能曲线示意</text>
+  <line x1="650" y1="635" x2="1230" y2="635" stroke="#94a8bc" stroke-width="2.5"/>
+  <line x1="650" y1="635" x2="650" y2="470" stroke="#94a8bc" stroke-width="2.5"/>
+  <text x="1240" y="642" class="small">SNR / dB</text>
+  <text x="620" y="474" class="small">Accuracy</text>
+  <text x="676" y="662" class="small">-10</text>
+  <text x="760" y="662" class="small">-5</text>
+  <text x="848" y="662" class="small">0</text>
+  <text x="936" y="662" class="small">5</text>
+  <text x="1020" y="662" class="small">10</text>
+  <text x="1112" y="662" class="small">15</text>
+  <text x="1200" y="662" class="small">20</text>
+
+  <path d="M680 610 C760 590, 830 555, 900 520 S1050 465, 1210 450" stroke="#2f9d88" stroke-width="5" fill="none"/>
+  <path d="M680 625 C760 610, 830 585, 900 555 S1050 510, 1210 480" stroke="#4d8fd1" stroke-width="5" fill="none"/>
+  <path d="M680 635 C760 628, 830 610, 900 585 S1050 555, 1210 520" stroke="#dd8a24" stroke-width="5" fill="none"/>
+  <path d="M680 642 C760 638, 830 626, 900 610 S1050 585, 1210 555" stroke="#8f79d8" stroke-width="5" fill="none"/>
+
+  <circle cx="1225" cy="498" r="6" fill="#2f9d88"/><text x="1240" y="503" class="small">FusionRNNResNet</text>
+  <circle cx="1225" cy="528" r="6" fill="#4d8fd1"/><text x="1240" y="533" class="small">ResNet18</text>
+  <circle cx="1225" cy="558" r="6" fill="#dd8a24"/><text x="1240" y="563" class="small">RNN1D</text>
+  <circle cx="1225" cy="588" r="6" fill="#8f79d8"/><text x="1240" y="593" class="small">TinyCNN</text>
+</svg>

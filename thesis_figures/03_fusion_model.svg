@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1420" height="860" viewBox="0 0 1420 860">
+  <defs>
+    <style>
+      .title { font: 700 30px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #15314a; }
+      .subtitle { font: 400 16px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #60758a; }
+      .label { font: 600 20px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #17324d; }
+      .small { font: 400 15px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #4d677f; }
+      .time { fill: #ecfbf8; stroke: #2ea08a; stroke-width: 2.2; rx: 18; ry: 18; }
+      .freq { fill: #eaf4ff; stroke: #4c8ccb; stroke-width: 2.2; rx: 18; ry: 18; }
+      .fusion { fill: #fff3e6; stroke: #d38822; stroke-width: 2.2; rx: 18; ry: 18; }
+      .note { fill: #f9fbfe; stroke: #c9d7e4; stroke-width: 1.8; rx: 15; ry: 15; }
+      .arrow { stroke: #5d7b98; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#5d7b98"/>
+    </marker>
+  </defs>
+
+  <rect width="1420" height="860" fill="#ffffff"/>
+  <text x="710" y="58" text-anchor="middle" class="title">FusionRNNResNet 时频融合模型结构图</text>
+  <text x="710" y="88" text-anchor="middle" class="subtitle">双向 LSTM 建模时域动态，ResNet18 提取时频纹理，再通过特征拼接与 MLP 分类</text>
+
+  <rect x="90" y="170" width="240" height="86" class="time"/>
+  <text x="210" y="204" text-anchor="middle" class="label">时域输入</text>
+  <text x="210" y="232" text-anchor="middle" class="small">1 × 4096 归一化波形</text>
+
+  <rect x="90" y="540" width="240" height="86" class="freq"/>
+  <text x="210" y="574" text-anchor="middle" class="label">谱域输入</text>
+  <text x="210" y="602" text-anchor="middle" class="small">2 × 64 × 64 STFT 特征</text>
+
+  <rect x="410" y="130" width="260" height="126" class="time"/>
+  <text x="540" y="176" text-anchor="middle" class="label">BiLSTM 层 1</text>
+  <text x="540" y="206" text-anchor="middle" class="small">双向序列建模</text>
+  <text x="540" y="232" text-anchor="middle" class="small">捕获前后文依赖</text>
+
+  <rect x="410" y="292" width="260" height="126" class="time"/>
+  <text x="540" y="338" text-anchor="middle" class="label">BiLSTM 层 2</text>
+  <text x="540" y="368" text-anchor="middle" class="small">更高层时域动态表示</text>
+  <text x="540" y="394" text-anchor="middle" class="small">配合 Dropout 抑制过拟合</text>
+
+  <rect x="410" y="454" width="260" height="126" class="time"/>
+  <text x="540" y="500" text-anchor="middle" class="label">时间维均值池化</text>
+  <text x="540" y="530" text-anchor="middle" class="small">输出时域特征向量 d_t</text>
+  <text x="540" y="556" text-anchor="middle" class="small">突出包络与瞬态差异</text>
+
+  <rect x="410" y="620" width="260" height="126" class="freq"/>
+  <text x="540" y="666" text-anchor="middle" class="label">ResNet18 频谱骨干</text>
+  <text x="540" y="696" text-anchor="middle" class="small">首层 conv1 适配 2 通道</text>
+  <text x="540" y="722" text-anchor="middle" class="small">输出 512 维谱域特征 d_f</text>
+
+  <line x1="330" y1="213" x2="410" y2="193" class="arrow"/>
+  <line x1="540" y1="256" x2="540" y2="292" class="arrow"/>
+  <line x1="540" y1="418" x2="540" y2="454" class="arrow"/>
+  <line x1="330" y1="583" x2="410" y2="683" class="arrow"/>
+
+  <rect x="770" y="250" width="260" height="116" class="note"/>
+  <text x="900" y="292" text-anchor="middle" class="label">时域分支优势</text>
+  <text x="900" y="322" text-anchor="middle" class="small">擅长建模波形动态、包络起伏、</text>
+  <text x="900" y="346" text-anchor="middle" class="small">脉冲瞬态与长时相关结构</text>
+
+  <rect x="770" y="564" width="260" height="116" class="note"/>
+  <text x="900" y="606" text-anchor="middle" class="label">谱域分支优势</text>
+  <text x="900" y="636" text-anchor="middle" class="small">擅长识别谐波纹理、能量分布、</text>
+  <text x="900" y="660" text-anchor="middle" class="small">局部时频模式与频带差异</text>
+
+  <rect x="1090" y="318" width="220" height="120" class="fusion"/>
+  <text x="1200" y="360" text-anchor="middle" class="label">特征拼接</text>
+  <text x="1200" y="390" text-anchor="middle" class="small">[t ; f]</text>
+  <text x="1200" y="414" text-anchor="middle" class="small">形成联合表示</text>
+
+  <rect x="1090" y="488" width="220" height="120" class="fusion"/>
+  <text x="1200" y="530" text-anchor="middle" class="label">MLP + Dropout</text>
+  <text x="1200" y="560" text-anchor="middle" class="small">两层全连接映射</text>
+  <text x="1200" y="584" text-anchor="middle" class="small">增强泛化能力</text>
+
+  <rect x="1090" y="660" width="220" height="100" class="fusion"/>
+  <text x="1200" y="700" text-anchor="middle" class="label">Softmax 输出</text>
+  <text x="1200" y="728" text-anchor="middle" class="small">9 类目标识别结果</text>
+
+  <line x1="670" y1="516" x2="1090" y2="378" class="arrow"/>
+  <line x1="670" y1="683" x2="1090" y2="378" class="arrow"/>
+  <line x1="1200" y1="438" x2="1200" y2="488" class="arrow"/>
+  <line x1="1200" y1="608" x2="1200" y2="660" class="arrow"/>
+</svg>

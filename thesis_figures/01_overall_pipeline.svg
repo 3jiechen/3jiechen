@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+  <defs>
+    <style>
+      .title { font: 700 30px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #16324f; }
+      .subtitle { font: 400 16px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #5b6b7f; }
+      .label { font: 600 18px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #17324d; }
+      .small { font: 400 14px 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif; fill: #47627d; }
+      .chip { fill: #f4f8fc; stroke: #7393b3; stroke-width: 2.2; rx: 18; ry: 18; }
+      .branchA { fill: #eaf4ff; stroke: #4f8cc9; stroke-width: 2.2; rx: 18; ry: 18; }
+      .branchB { fill: #ecfbf8; stroke: #30a18a; stroke-width: 2.2; rx: 18; ry: 18; }
+      .fusion { fill: #fff4e8; stroke: #d48b27; stroke-width: 2.2; rx: 18; ry: 18; }
+      .accent { fill: #f9fbfe; stroke: #c9d7e4; stroke-width: 1.8; rx: 14; ry: 14; }
+      .arrow { stroke: #577590; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #9aaabd; stroke-width: 3; fill: none; stroke-dasharray: 10 8; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#577590"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="820" fill="#ffffff"/>
+  <text x="700" y="58" text-anchor="middle" class="title">水声信号识别总体流程图</text>
+  <text x="700" y="88" text-anchor="middle" class="subtitle">从 MAT 波形数据到时频融合模型，再到跨条件评测与嵌入式部署</text>
+
+  <rect x="70" y="150" width="180" height="96" class="chip"/>
+  <text x="160" y="188" text-anchor="middle" class="label">MAT 波形数据</text>
+  <text x="160" y="216" text-anchor="middle" class="small">.mat 文件 / 类别目录</text>
+
+  <rect x="300" y="150" width="210" height="96" class="chip"/>
+  <text x="405" y="184" text-anchor="middle" class="label">固定长度处理</text>
+  <text x="405" y="212" text-anchor="middle" class="small">4096 点截断或零填充</text>
+
+  <rect x="560" y="150" width="210" height="96" class="chip"/>
+  <text x="665" y="184" text-anchor="middle" class="label">时域归一化</text>
+  <text x="665" y="212" text-anchor="middle" class="small">零均值 / 单位方差</text>
+
+  <line x1="250" y1="198" x2="300" y2="198" class="arrow"/>
+  <line x1="510" y1="198" x2="560" y2="198" class="arrow"/>
+
+  <rect x="875" y="112" width="220" height="126" class="accent"/>
+  <text x="985" y="150" text-anchor="middle" class="label">测试阶段 AWGN</text>
+  <text x="985" y="178" text-anchor="middle" class="small">按 SNR 区间注入噪声</text>
+  <text x="985" y="202" text-anchor="middle" class="small">构造跨条件评测样本</text>
+  <line x1="770" y1="198" x2="875" y2="176" class="dash"/>
+
+  <line x1="665" y1="246" x2="665" y2="312" class="arrow"/>
+  <line x1="665" y1="312" x2="400" y2="312" class="arrow"/>
+  <line x1="665" y1="312" x2="930" y2="312" class="arrow"/>
+  <line x1="400" y1="312" x2="400" y2="360" class="arrow"/>
+  <line x1="930" y1="312" x2="930" y2="360" class="arrow"/>
+
+  <rect x="240" y="360" width="320" height="170" class="branchA"/>
+  <text x="400" y="398" text-anchor="middle" class="label">谱域分支</text>
+  <text x="400" y="428" text-anchor="middle" class="small">STFT 双通道特征</text>
+  <text x="400" y="454" text-anchor="middle" class="small">幅度 |X| + 相位 angle(X)</text>
+  <text x="400" y="480" text-anchor="middle" class="small">张量尺寸：2 × 64 × 64</text>
+  <rect x="292" y="494" width="216" height="20" fill="#d6e9fb" rx="10"/>
+  <rect x="292" y="494" width="126" height="20" fill="#5ca2e0" rx="10"/>
+
+  <rect x="770" y="360" width="320" height="170" class="branchB"/>
+  <text x="930" y="398" text-anchor="middle" class="label">时域分支</text>
+  <text x="930" y="428" text-anchor="middle" class="small">归一化序列输入</text>
+  <text x="930" y="454" text-anchor="middle" class="small">张量尺寸：1 × 4096</text>
+  <text x="930" y="480" text-anchor="middle" class="small">保留波形包络与瞬态动态</text>
+  <path d="M820 510 C850 470, 890 550, 930 510 S1010 470, 1040 510" stroke="#2fa38b" stroke-width="4" fill="none"/>
+
+  <rect x="250" y="590" width="300" height="92" class="branchA"/>
+  <text x="400" y="628" text-anchor="middle" class="label">ResNet18 频谱分支</text>
+  <text x="400" y="656" text-anchor="middle" class="small">提取时频纹理与谐波结构</text>
+
+  <rect x="780" y="590" width="300" height="92" class="branchB"/>
+  <text x="930" y="628" text-anchor="middle" class="label">BiLSTM 时域分支</text>
+  <text x="930" y="656" text-anchor="middle" class="small">建模长时相关与序列动态</text>
+
+  <line x1="400" y1="530" x2="400" y2="590" class="arrow"/>
+  <line x1="930" y1="530" x2="930" y2="590" class="arrow"/>
+
+  <rect x="570" y="578" width="190" height="118" class="fusion"/>
+  <text x="665" y="620" text-anchor="middle" class="label">特征融合</text>
+  <text x="665" y="648" text-anchor="middle" class="small">concat([t; f])</text>
+  <text x="665" y="672" text-anchor="middle" class="small">MLP + Dropout</text>
+
+  <line x1="550" y1="636" x2="570" y2="636" class="arrow"/>
+  <line x1="780" y1="636" x2="760" y2="636" class="arrow"/>
+
+  <rect x="1130" y="590" width="180" height="92" class="fusion"/>
+  <text x="1220" y="628" text-anchor="middle" class="label">分类输出</text>
+  <text x="1220" y="656" text-anchor="middle" class="small">9 类识别结果</text>
+  <line x1="760" y1="636" x2="1130" y2="636" class="arrow"/>
+
+  <rect x="1140" y="140" width="170" height="170" class="accent"/>
+  <text x="1225" y="176" text-anchor="middle" class="label">工程落地</text>
+  <text x="1225" y="206" text-anchor="middle" class="small">ONNX 导出</text>
+  <text x="1225" y="232" text-anchor="middle" class="small">树莓派推理</text>
+  <text x="1225" y="258" text-anchor="middle" class="small">界面显示与日志</text>
+  <line x1="1220" y1="590" x2="1225" y2="310" class="dash"/>
+</svg>
