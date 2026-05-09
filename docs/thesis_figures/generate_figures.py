@@ -393,6 +393,34 @@ def figure_09() -> None:
     write("fig09_snr_accuracy_academic.svg", svg(WIDE_W, 780, body))
 
 
+def figure_10() -> None:
+    body = [
+        section_label(750, 58, "制式识别多分类流程"),
+        box(70, 180, 210, 135, "输入信号", ["接收片段 x", "固定长度窗口"], fill=GRAY),
+        box(340, 180, 210, 135, "预处理", ["截取 / 补零", "波形标准化"], fill="#ffffff"),
+        box(610, 180, 210, 135, "特征构建", ["时域波形", "STFT 谱图"], fill=BLUE_LIGHT),
+        box(880, 180, 230, 135, "深度模型", ["学习判别特征", "fθ(x)"], fill="#ffffff"),
+        box(1170, 180, 240, 135, "分类输出", ["P(y|x)", "类别标签 ĉ"], fill=GRAY),
+        arrow(280, 248, 340, 248),
+        arrow(550, 248, 610, 248),
+        arrow(820, 248, 880, 248),
+        arrow(1110, 248, 1170, 248),
+        f'<rect x="110" y="405" width="1280" height="210" rx="10" fill="none" stroke="{BLUE}" stroke-width="2" stroke-dasharray="10 8"/>',
+        text(750, 440, "监督学习训练阶段", size=25, weight=700, color=BLUE),
+        box(180, 480, 250, 95, "训练样本", ["{(x_i, y_i)}"], fill="#ffffff", title_size=23, body_size=22),
+        box(520, 480, 250, 95, "损失函数", ["交叉熵损失"], fill=ORANGE_LIGHT, title_size=23, body_size=22),
+        box(860, 480, 250, 95, "参数优化", ["反向传播更新 θ"], fill=GREEN_LIGHT, title_size=23, body_size=22),
+        box(1180, 480, 150, 95, "模型保存", ["最优权重"], fill="#ffffff", title_size=23, body_size=21),
+        arrow(430, 528, 520, 528),
+        arrow(770, 528, 860, 528),
+        arrow(1110, 528, 1180, 528),
+        f'<line x1="985" y1="480" x2="985" y2="315" stroke="{BLUE}" stroke-width="2" stroke-dasharray="8 7" marker-end="url(#arrow)"/>',
+        text(1008, 397, "训练得到", size=19, anchor="start", color=BLUE),
+        text(750, 684, "判决规则：ĉ = arg max P(y = c_k | x)，其中 C = {c1, c2, ..., cK}", size=25, color=INK),
+    ]
+    write("fig10_modulation_multiclass_flow.svg", svg(WIDE_W, WIDE_H, body))
+
+
 def main() -> None:
     figure_01()
     figure_02()
@@ -403,6 +431,7 @@ def main() -> None:
     figure_07()
     figure_08()
     figure_09()
+    figure_10()
 
 
 if __name__ == "__main__":

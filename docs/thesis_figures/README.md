@@ -17,6 +17,7 @@
 | `fig07_raspberry_pi_deployment.svg` | 树莓派端水声识别系统部署架构 | 第 6 章 |
 | `fig08_ui_wireframe.svg` | 水声识别系统人机界面原型 | 第 6 章 |
 | `fig09_snr_accuracy_academic.svg` | 不同信噪比下各模型识别率对比 | 第 5 章 |
+| `fig10_modulation_multiclass_flow.svg` | 水声信号制式识别多分类流程 | 第 2 章 |
 
 ## LaTeX 插入示例
 
