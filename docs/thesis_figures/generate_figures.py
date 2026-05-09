@@ -303,6 +303,96 @@ def figure_08() -> None:
     write("fig08_ui_wireframe.svg", svg(WIDE_W, WIDE_H, body))
 
 
+def plot_xy(
+    x: float,
+    y: float,
+    *,
+    left: int,
+    top: int,
+    width: int,
+    height: int,
+    x_min: float = -10,
+    x_max: float = 10,
+    y_min: float = 40,
+    y_max: float = 100,
+) -> tuple[float, float]:
+    px = left + (x - x_min) / (x_max - x_min) * width
+    py = top + (y_max - y) / (y_max - y_min) * height
+    return px, py
+
+
+def marker(cx: float, cy: float, color: str, kind: str) -> str:
+    if kind == "square":
+        return f'<rect x="{cx - 5:.1f}" y="{cy - 5:.1f}" width="10" height="10" fill="#ffffff" stroke="{color}" stroke-width="2"/>'
+    if kind == "triangle":
+        return f'<path d="M{cx:.1f},{cy - 6:.1f} L{cx - 6:.1f},{cy + 5:.1f} L{cx + 6:.1f},{cy + 5:.1f} Z" fill="#ffffff" stroke="{color}" stroke-width="2"/>'
+    if kind == "diamond":
+        return f'<path d="M{cx:.1f},{cy - 6:.1f} L{cx + 6:.1f},{cy:.1f} L{cx:.1f},{cy + 6:.1f} L{cx - 6:.1f},{cy:.1f} Z" fill="#ffffff" stroke="{color}" stroke-width="2"/>'
+    return f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="5.2" fill="#ffffff" stroke="{color}" stroke-width="2"/>'
+
+
+def curve(
+    xs: list[int],
+    ys: list[float],
+    *,
+    color: str,
+    kind: str,
+    left: int,
+    top: int,
+    width: int,
+    height: int,
+) -> str:
+    points = [plot_xy(x, y, left=left, top=top, width=width, height=height) for x, y in zip(xs, ys)]
+    path = " ".join(f"{x:.1f},{y:.1f}" for x, y in points)
+    symbols = "\n".join(marker(x, y, color, kind) for x, y in points)
+    return f'<polyline points="{path}" fill="none" stroke="{color}" stroke-width="3"/>\n{symbols}'
+
+
+def figure_09() -> None:
+    left, top, width, height = 150, 90, 1030, 520
+    xs = [-10, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10]
+    series = [
+        ("时域 RNN", [45, 50, 58, 65, 70, 75, 80, 82, 83, 85, 84], "#d33f3f", "circle"),
+        ("STFT+ResNet", [67, 71, 76, 77, 79, 80, 80, 80, 84, 82, 84], "#2f6db3", "diamond"),
+        ("STFT+CNN", [62, 68, 73, 77, 78, 78.5, 79.5, 79, 78.7, 78.3, 79], "#3a9b67", "triangle"),
+        ("特征融合", [66, 72, 76, 80, 82.5, 85, 86.5, 87, 88.5, 88.7, 88.9], "#7a5ac8", "square"),
+        ("RNN+ResNet 融合", [84.5, 86, 89, 91, 93.5, 94.5, 94.7, 96.5, 97.1, 96.6, 96.6], "#d96b1c", "circle"),
+    ]
+
+    body: list[str] = []
+    for yt in [40, 50, 60, 70, 80, 90, 100]:
+        _, py = plot_xy(-10, yt, left=left, top=top, width=width, height=height)
+        body.append(f'<line x1="{left}" y1="{py:.1f}" x2="{left + width}" y2="{py:.1f}" stroke="#d9d9d9" stroke-width="1.2" stroke-dasharray="6 6"/>')
+        body.append(text(left - 24, int(py + 7), str(yt), size=22, anchor="end", color=INK))
+    for xt in xs:
+        px, _ = plot_xy(xt, 40, left=left, top=top, width=width, height=height)
+        body.append(f'<line x1="{px:.1f}" y1="{top}" x2="{px:.1f}" y2="{top + height}" stroke="#e5e5e5" stroke-width="1.1" stroke-dasharray="5 7"/>')
+        body.append(text(int(px), top + height + 38, str(xt), size=22, color=INK))
+
+    body.extend(
+        [
+            f'<rect x="{left}" y="{top}" width="{width}" height="{height}" fill="none" stroke="{INK}" stroke-width="2.2"/>',
+            f'<line x1="{left}" y1="{top + height}" x2="{left + width}" y2="{top + height}" stroke="{INK}" stroke-width="2.4"/>',
+            f'<line x1="{left}" y1="{top}" x2="{left}" y2="{top + height}" stroke="{INK}" stroke-width="2.4"/>',
+            text(left + width // 2, top + height + 82, "信噪比 (dB)", size=27, color=INK),
+            f'<text x="52" y="{top + height // 2}" text-anchor="middle" font-size="27" fill="{INK}" transform="rotate(-90 52 {top + height // 2})">识别率 (%)</text>',
+        ]
+    )
+
+    for _, ys, color, kind in series:
+        body.append(curve(xs, ys, color=color, kind=kind, left=left, top=top, width=width, height=height))
+
+    legend_x, legend_y = 1215, 150
+    body.append(f'<rect x="{legend_x - 20}" y="{legend_y - 40}" width="245" height="235" fill="#ffffff" stroke="{LINE}" stroke-width="1.5"/>')
+    for i, (name, _, color, kind) in enumerate(series):
+        y = legend_y + i * 42
+        body.append(f'<line x1="{legend_x}" y1="{y}" x2="{legend_x + 48}" y2="{y}" stroke="{color}" stroke-width="3"/>')
+        body.append(marker(legend_x + 24, y, color, kind))
+        body.append(text(legend_x + 62, y + 8, name, size=21, anchor="start", color=INK))
+
+    write("fig09_snr_accuracy_academic.svg", svg(WIDE_W, 780, body))
+
+
 def main() -> None:
     figure_01()
     figure_02()
@@ -312,6 +402,7 @@ def main() -> None:
     figure_06()
     figure_07()
     figure_08()
+    figure_09()
 
 
 if __name__ == "__main__":
