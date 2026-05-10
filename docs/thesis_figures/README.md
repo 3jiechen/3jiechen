@@ -19,6 +19,11 @@
 | `fig09_snr_accuracy_academic.svg` | 不同信噪比下各模型识别率对比 | 第 5 章 |
 | `fig10_modulation_multiclass_flow.svg` | 水声信号制式识别多分类流程 | 第 2 章 |
 | `fig11_deep_learning_structure_summary.svg` / `.pdf` | 深度学习模型结构与作用概述 | 第 2 章 |
+| `fig12_confusion_rnn1d.svg` | 时域 RNN 混淆矩阵 | 第 4 章 |
+| `fig13_confusion_stft_tinycnn.svg` | STFT + TinyCNN 混淆矩阵 | 第 4 章 |
+| `fig14_confusion_stft_resnet.svg` | STFT + ResNet 混淆矩阵 | 第 4 章 |
+| `fig15_confusion_stft_cnn_rnn.svg` | STFT + CNN + RNN 融合模型混淆矩阵 | 第 4 章 |
+| `fig16_confusion_stft_resnet_rnn.svg` | STFT + ResNet + RNN 融合模型混淆矩阵 | 第 4 章 |
 
 ## LaTeX 插入示例
 
@@ -64,4 +69,10 @@
 
 ```bash
 python3 docs/thesis_figures/generate_figures.py
+```
+
+混淆矩阵图片由 `generate_confusion_matrices.py` 生成：
+
+```bash
+python3 docs/thesis_figures/generate_confusion_matrices.py
 ```
