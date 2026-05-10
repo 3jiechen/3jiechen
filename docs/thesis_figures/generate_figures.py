@@ -421,6 +421,29 @@ def figure_10() -> None:
     write("fig10_modulation_multiclass_flow.svg", svg(WIDE_W, WIDE_H, body))
 
 
+def figure_11() -> None:
+    body = [
+        section_label(750, 56, "深度学习模型结构概述"),
+        f'<rect x="70" y="105" width="1360" height="70" rx="10" fill="{BLUE_LIGHT}" stroke="{BLUE}" stroke-width="1.8"/>',
+        text(750, 150, "深度学习通过多层神经网络从波形或谱图中自动学习判别性特征，减少对人工特征设计的依赖", size=24, color=INK),
+        box(95, 245, 250, 125, "一维时域波形", ["4096 点序列", "幅度 / 相位变化规律"], fill=GRAY, title_size=24, body_size=20),
+        box(95, 460, 250, 125, "STFT 双通道谱图", ["幅值谱 + 相位谱", "局部时频纹理"], fill=BLUE_LIGHT, title_size=24, body_size=20),
+        box(455, 245, 280, 125, "LSTM 时域分支", ["门控机制保留长时信息", "建模序列依赖关系"], fill="#ffffff", title_size=24, body_size=20),
+        box(455, 460, 280, 125, "CNN / ResNet 谱图分支", ["局部连接与权值共享", "残差连接稳定深层训练"], fill="#ffffff", title_size=24, body_size=20),
+        box(860, 335, 260, 145, "多分支特征融合", ["拼接时域与谱域表示", "增强低信噪比鲁棒性"], fill=GREEN_LIGHT, title_size=24, body_size=20),
+        box(1235, 335, 190, 145, "制式分类", ["Softmax 输出", "9 类调制标签"], fill=ORANGE_LIGHT, title_size=24, body_size=20),
+        arrow(345, 308, 455, 308, "序列建模"),
+        arrow(345, 522, 455, 522, "局部纹理"),
+        arrow(735, 308, 860, 382),
+        arrow(735, 522, 860, 432),
+        arrow(1120, 407, 1235, 407),
+        f'<line x1="220" y1="370" x2="220" y2="460" stroke="{LINE}" stroke-width="1.6" stroke-dasharray="8 7"/>',
+        f'<line x1="595" y1="370" x2="595" y2="460" stroke="{LINE}" stroke-width="1.6" stroke-dasharray="8 7"/>',
+        text(750, 672, "图示关系：CNN/ResNet 侧重谱图局部稳健特征，LSTM 侧重长时依赖，多分支融合用于提升抗噪识别能力", size=23, color=INK),
+    ]
+    write("fig11_deep_learning_structure_summary.svg", svg(WIDE_W, WIDE_H, body))
+
+
 def main() -> None:
     figure_01()
     figure_02()
@@ -432,6 +455,7 @@ def main() -> None:
     figure_08()
     figure_09()
     figure_10()
+    figure_11()
 
 
 if __name__ == "__main__":
