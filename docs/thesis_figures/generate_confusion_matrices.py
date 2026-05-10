@@ -7,15 +7,15 @@ from pathlib import Path
 OUT_DIR = Path(__file__).resolve().parent
 
 LABELS = [
-    "R2FSK",
-    "R4FSK",
-    "R8FSK",
-    "R2PSK",
-    "R4PSK",
-    "R8PSK",
-    "R16QAM",
-    "R64QAM",
-    "R64OFDM",
+    "2FSK",
+    "4FSK",
+    "8FSK",
+    "2PSK",
+    "4PSK",
+    "8PSK",
+    "16QAM",
+    "64QAM",
+    "64OFDM",
 ]
 
 MATRICES = [
