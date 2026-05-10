@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="76.0mm" viewBox="0 0 1500 760">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L11,6 L2,10 Z" fill="#4a4a4a"/>
+    </marker>
+    <style>
+      text { font-family: "SimSun", "Songti SC", "Noto Serif CJK SC", serif; dominant-baseline: alphabetic; }
+      rect, path, line, polyline { vector-effect: non-scaling-stroke; }
+    </style>
+  </defs>
+  <rect width="1500" height="760" fill="#ffffff"/>
+  <rect x="676" y="30" width="148" height="38" rx="19" fill="#edf4fb" stroke="#2f5f8f" stroke-width="1.6"/><text x="750" y="56" text-anchor="middle" font-size="20" font-weight="700" fill="#2f5f8f">树莓派端部署架构</text><rect x="80" y="160" width="270" height="140" rx="8" fill="#f6f6f6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="215" y="199" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">采集层</text>
+<text x="215" y="236" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">文件回放</text>
+<text x="215" y="266" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">水听器 / ADC</text>
+<text x="215" y="296" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">数据缓冲</text><rect x="430" y="160" width="270" height="140" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="565" y="199" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">预处理层</text>
+<text x="565" y="236" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">4096 点窗口</text>
+<text x="565" y="266" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">归一化</text>
+<text x="565" y="296" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">STFT</text><rect x="780" y="160" width="270" height="140" rx="8" fill="#edf4fb" stroke="#4a4a4a" stroke-width="2"/>
+<text x="915" y="199" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">推理层</text>
+<text x="915" y="236" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">ONNX Runtime</text>
+<text x="915" y="266" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">TinyCNN / Fusion</text>
+<text x="915" y="296" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">Top-k 概率</text><rect x="1130" y="160" width="270" height="140" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="1265" y="199" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">应用层</text>
+<text x="1265" y="236" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">UI 展示</text>
+<text x="1265" y="266" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">CSV 日志</text>
+<text x="1265" y="296" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">异常提示</text><line x1="350" y1="230" x2="430" y2="230" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="700" y1="230" x2="780" y2="230" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="1050" y1="230" x2="1130" y2="230" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><rect x="230" y="455" width="300" height="135" rx="8" fill="#fff3e6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="380" y="494" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">PC 训练端</text>
+<text x="380" y="531" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">PyTorch 训练</text>
+<text x="380" y="561" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">权重保存</text>
+<text x="380" y="591" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">torch.onnx.export</text><rect x="720" y="455" width="300" height="135" rx="8" fill="#eef7ef" stroke="#4a4a4a" stroke-width="2"/>
+<text x="870" y="494" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">模型文件</text>
+<text x="870" y="531" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">.onnx</text>
+<text x="870" y="561" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">类别映射表</text>
+<text x="870" y="591" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">预处理参数</text><rect x="1110" y="455" width="300" height="135" rx="8" fill="#f6f6f6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="1260" y="494" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">运行维护</text>
+<text x="1260" y="531" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">开机自启动</text>
+<text x="1260" y="561" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">日志轮转</text>
+<text x="1260" y="591" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">温度与延迟监控</text><line x1="530" y1="522" x2="720" y2="522" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="1020" y1="522" x2="1110" y2="522" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/>
+</svg>

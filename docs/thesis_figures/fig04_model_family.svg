@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="76.0mm" viewBox="0 0 1500 760">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L11,6 L2,10 Z" fill="#4a4a4a"/>
+    </marker>
+    <style>
+      text { font-family: "SimSun", "Songti SC", "Noto Serif CJK SC", serif; dominant-baseline: alphabetic; }
+      rect, path, line, polyline { vector-effect: non-scaling-stroke; }
+    </style>
+  </defs>
+  <rect width="1500" height="760" fill="#ffffff"/>
+  <rect x="676" y="30" width="148" height="38" rx="19" fill="#edf4fb" stroke="#2f5f8f" stroke-width="1.6"/><text x="750" y="56" text-anchor="middle" font-size="20" font-weight="700" fill="#2f5f8f">模型体系对比</text><rect x="90" y="170" width="285" height="340" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="232" y="209" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">TinyCNN</text>
+<text x="232" y="246" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">输入：2 x 64 x 64</text>
+<text x="232" y="276" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">少量卷积与池化</text>
+<text x="232" y="306" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">参数少、训练快</text>
+<text x="232" y="336" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">嵌入式候选</text><rect x="430" y="170" width="285" height="340" rx="8" fill="#edf4fb" stroke="#4a4a4a" stroke-width="2"/>
+<text x="572" y="209" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">ResNet18 谱域模型</text>
+<text x="572" y="246" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">首层改为 2 通道</text>
+<text x="572" y="276" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">残差连接提取纹理</text>
+<text x="572" y="306" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">输出高层谱域特征</text>
+<text x="572" y="336" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">谱域强基线</text><rect x="785" y="170" width="285" height="340" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="927" y="209" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">RNN1D 时域模型</text>
+<text x="927" y="246" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">输入：1 x 4096</text>
+<text x="927" y="276" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">LSTM 建模序列动态</text>
+<text x="927" y="306" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">关注包络与瞬态</text>
+<text x="927" y="336" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">时域对照模型</text><rect x="1125" y="170" width="285" height="340" rx="8" fill="#edf4fb" stroke="#4a4a4a" stroke-width="2"/>
+<text x="1267" y="209" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">FusionRNNResNet</text>
+<text x="1267" y="246" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">BiLSTM 时域分支</text>
+<text x="1267" y="276" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">ResNet18 谱域分支</text>
+<text x="1267" y="306" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">特征拼接与分类</text>
+<text x="1267" y="336" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">本文重点模型</text><text x="232" y="585" text-anchor="middle" font-size="22" font-weight="400" fill="#2f5f8f">轻量谱域基线</text><text x="572" y="585" text-anchor="middle" font-size="22" font-weight="400" fill="#2f5f8f">深层谱域基线</text><text x="927" y="585" text-anchor="middle" font-size="22" font-weight="400" fill="#2f5f8f">时域单模态对照</text><text x="1267" y="585" text-anchor="middle" font-size="22" font-weight="400" fill="#2f5f8f">时频多模态融合</text>
+</svg>

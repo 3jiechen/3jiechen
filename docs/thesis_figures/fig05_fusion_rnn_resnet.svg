@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="76.0mm" viewBox="0 0 1500 760">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L11,6 L2,10 Z" fill="#4a4a4a"/>
+    </marker>
+    <style>
+      text { font-family: "SimSun", "Songti SC", "Noto Serif CJK SC", serif; dominant-baseline: alphabetic; }
+      rect, path, line, polyline { vector-effect: non-scaling-stroke; }
+    </style>
+  </defs>
+  <rect width="1500" height="760" fill="#ffffff"/>
+  <rect x="676" y="30" width="148" height="38" rx="19" fill="#edf4fb" stroke="#2f5f8f" stroke-width="1.6"/><text x="750" y="56" text-anchor="middle" font-size="20" font-weight="700" fill="#2f5f8f">FusionRNNResNet 网络结构</text><rect x="70" y="145" width="250" height="110" rx="8" fill="#f6f6f6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="195" y="184" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">时域输入</text>
+<text x="195" y="221" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">归一化波形 1 x 4096</text><rect x="70" y="475" width="250" height="110" rx="8" fill="#f6f6f6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="195" y="514" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">谱域输入</text>
+<text x="195" y="551" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">STFT 特征 2 x 64 x 64</text><line x1="320" y1="200" x2="445" y2="200" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="320" y1="530" x2="445" y2="530" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><rect x="445" y="130" width="260" height="145" rx="8" fill="#eef7ef" stroke="#4a4a4a" stroke-width="2"/>
+<text x="575" y="169" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">BiLSTM 分支</text>
+<text x="575" y="206" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">双向序列建模</text>
+<text x="575" y="236" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">Dropout</text>
+<text x="575" y="266" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">时间维均值池化</text><rect x="445" y="460" width="260" height="145" rx="8" fill="#fff3e6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="575" y="499" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">ResNet18 分支</text>
+<text x="575" y="536" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">2 通道首层卷积</text>
+<text x="575" y="566" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">残差特征提取</text>
+<text x="575" y="596" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">输出 512 维向量</text><line x1="705" y1="200" x2="865" y2="300" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/>
+<text x="785" y="240" text-anchor="middle" font-size="18" font-weight="400" fill="#4c4c4c">dt</text><line x1="705" y1="530" x2="865" y2="430" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/>
+<text x="785" y="470" text-anchor="middle" font-size="18" font-weight="400" fill="#4c4c4c">df</text><rect x="865" y="300" width="250" height="135" rx="8" fill="#edf4fb" stroke="#4a4a4a" stroke-width="2"/>
+<text x="990" y="339" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">特征融合</text>
+<text x="990" y="376" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">torch.cat([t, f])</text>
+<text x="990" y="406" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">拼接为联合表示</text><line x1="1115" y1="368" x2="1230" y2="368" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><rect x="1230" y="300" width="220" height="135" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="1340" y="339" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">分类器</text>
+<text x="1340" y="376" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">MLP + Dropout</text>
+<text x="1340" y="406" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">输出 9 类 logits</text><text x="750" y="700" text-anchor="middle" font-size="23" font-weight="400" fill="#4c4c4c">融合思想：时域分支刻画动态变化，谱域分支刻画时频纹理，二者在特征层互补。</text>
+</svg>

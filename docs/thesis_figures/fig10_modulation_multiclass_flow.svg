@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="76.0mm" viewBox="0 0 1500 760">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L11,6 L2,10 Z" fill="#4a4a4a"/>
+    </marker>
+    <style>
+      text { font-family: "SimSun", "Songti SC", "Noto Serif CJK SC", serif; dominant-baseline: alphabetic; }
+      rect, path, line, polyline { vector-effect: non-scaling-stroke; }
+    </style>
+  </defs>
+  <rect width="1500" height="760" fill="#ffffff"/>
+  <rect x="676" y="30" width="148" height="38" rx="19" fill="#edf4fb" stroke="#2f5f8f" stroke-width="1.6"/><text x="750" y="56" text-anchor="middle" font-size="20" font-weight="700" fill="#2f5f8f">制式识别多分类流程</text><rect x="70" y="180" width="210" height="135" rx="8" fill="#f6f6f6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="175" y="219" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">输入信号</text>
+<text x="175" y="256" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">接收片段 x</text>
+<text x="175" y="286" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">固定长度窗口</text><rect x="340" y="180" width="210" height="135" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="445" y="219" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">预处理</text>
+<text x="445" y="256" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">截取 / 补零</text>
+<text x="445" y="286" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">波形标准化</text><rect x="610" y="180" width="210" height="135" rx="8" fill="#edf4fb" stroke="#4a4a4a" stroke-width="2"/>
+<text x="715" y="219" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">特征构建</text>
+<text x="715" y="256" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">时域波形</text>
+<text x="715" y="286" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">STFT 谱图</text><rect x="880" y="180" width="230" height="135" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="995" y="219" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">深度模型</text>
+<text x="995" y="256" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">学习判别特征</text>
+<text x="995" y="286" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">fθ(x)</text><rect x="1170" y="180" width="240" height="135" rx="8" fill="#f6f6f6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="1290" y="219" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">分类输出</text>
+<text x="1290" y="256" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">P(y|x)</text>
+<text x="1290" y="286" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">类别标签 ĉ</text><line x1="280" y1="248" x2="340" y2="248" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="550" y1="248" x2="610" y2="248" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="820" y1="248" x2="880" y2="248" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="1110" y1="248" x2="1170" y2="248" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><rect x="110" y="405" width="1280" height="210" rx="10" fill="none" stroke="#2f5f8f" stroke-width="2" stroke-dasharray="10 8"/><text x="750" y="440" text-anchor="middle" font-size="25" font-weight="700" fill="#2f5f8f">监督学习训练阶段</text><rect x="180" y="480" width="250" height="95" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="305" y="519" text-anchor="middle" font-size="23" font-weight="700" fill="#1f1f1f">训练样本</text>
+<text x="305" y="556" text-anchor="middle" font-size="22" font-weight="400" fill="#4c4c4c">{(x_i, y_i)}</text><rect x="520" y="480" width="250" height="95" rx="8" fill="#fff3e6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="645" y="519" text-anchor="middle" font-size="23" font-weight="700" fill="#1f1f1f">损失函数</text>
+<text x="645" y="556" text-anchor="middle" font-size="22" font-weight="400" fill="#4c4c4c">交叉熵损失</text><rect x="860" y="480" width="250" height="95" rx="8" fill="#eef7ef" stroke="#4a4a4a" stroke-width="2"/>
+<text x="985" y="519" text-anchor="middle" font-size="23" font-weight="700" fill="#1f1f1f">参数优化</text>
+<text x="985" y="556" text-anchor="middle" font-size="22" font-weight="400" fill="#4c4c4c">反向传播更新 θ</text><rect x="1180" y="480" width="150" height="95" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="1255" y="519" text-anchor="middle" font-size="23" font-weight="700" fill="#1f1f1f">模型保存</text>
+<text x="1255" y="556" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">最优权重</text><line x1="430" y1="528" x2="520" y2="528" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="770" y1="528" x2="860" y2="528" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="1110" y1="528" x2="1180" y2="528" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="985" y1="480" x2="985" y2="315" stroke="#2f5f8f" stroke-width="2" stroke-dasharray="8 7" marker-end="url(#arrow)"/><text x="1008" y="397" text-anchor="start" font-size="19" font-weight="400" fill="#2f5f8f">训练得到</text><text x="750" y="684" text-anchor="middle" font-size="25" font-weight="400" fill="#1f1f1f">判决规则：ĉ = arg max P(y = c_k | x)，其中 C = {c1, c2, ..., cK}</text>
+</svg>

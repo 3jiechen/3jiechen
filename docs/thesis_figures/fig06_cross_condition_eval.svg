@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="76.0mm" viewBox="0 0 1500 760">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L11,6 L2,10 Z" fill="#4a4a4a"/>
+    </marker>
+    <style>
+      text { font-family: "SimSun", "Songti SC", "Noto Serif CJK SC", serif; dominant-baseline: alphabetic; }
+      rect, path, line, polyline { vector-effect: non-scaling-stroke; }
+    </style>
+  </defs>
+  <rect width="1500" height="760" fill="#ffffff"/>
+  <rect x="676" y="30" width="148" height="38" rx="19" fill="#edf4fb" stroke="#2f5f8f" stroke-width="1.6"/><text x="750" y="56" text-anchor="middle" font-size="20" font-weight="700" fill="#2f5f8f">AWGN 跨条件评估流程</text><rect x="90" y="150" width="270" height="145" rx="8" fill="#f6f6f6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="225" y="189" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">训练完成模型</text>
+<text x="225" y="226" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">TinyCNN / ResNet18</text>
+<text x="225" y="256" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">RNN1D / Fusion</text><rect x="430" y="150" width="270" height="145" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="565" y="189" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">干净测试样本</text>
+<text x="565" y="226" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">.mat 波形</text>
+<text x="565" y="256" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">固定长度处理</text><rect x="770" y="150" width="270" height="145" rx="8" fill="#edf4fb" stroke="#4a4a4a" stroke-width="2"/>
+<text x="905" y="189" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">AWGN 注入</text>
+<text x="905" y="226" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">按目标 SNR 控制</text>
+<text x="905" y="256" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">模拟噪声条件迁移</text><rect x="1110" y="150" width="270" height="145" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="1245" y="189" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">模型推理</text>
+<text x="1245" y="226" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">批量预测</text>
+<text x="1245" y="256" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">记录类别概率</text><line x1="360" y1="222" x2="430" y2="222" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="700" y1="222" x2="770" y2="222" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="1040" y1="222" x2="1110" y2="222" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><rect x="310" y="445" width="310" height="150" rx="8" fill="#fff3e6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="465" y="484" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">SNR 扫描</text>
+<text x="465" y="521" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">例如 -10 dB 至 20 dB</text>
+<text x="465" y="551" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">分区间统计性能</text><rect x="785" y="445" width="360" height="150" rx="8" fill="#eef7ef" stroke="#4a4a4a" stroke-width="2"/>
+<text x="965" y="484" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">结果分析</text>
+<text x="965" y="521" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">Accuracy-SNR 曲线</text>
+<text x="965" y="551" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">混淆矩阵 / F1</text>
+<text x="965" y="581" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">单分支与融合模型对比</text><line x1="620" y1="520" x2="785" y2="520" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="1245" y1="295" x2="965" y2="445" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/>
+</svg>

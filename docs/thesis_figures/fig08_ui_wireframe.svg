@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="76.0mm" viewBox="0 0 1500 760">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L11,6 L2,10 Z" fill="#4a4a4a"/>
+    </marker>
+    <style>
+      text { font-family: "SimSun", "Songti SC", "Noto Serif CJK SC", serif; dominant-baseline: alphabetic; }
+      rect, path, line, polyline { vector-effect: non-scaling-stroke; }
+    </style>
+  </defs>
+  <rect width="1500" height="760" fill="#ffffff"/>
+  <rect x="676" y="30" width="148" height="38" rx="19" fill="#edf4fb" stroke="#2f5f8f" stroke-width="1.6"/><text x="750" y="56" text-anchor="middle" font-size="20" font-weight="700" fill="#2f5f8f">人机界面原型</text><rect x="110" y="105" width="1280" height="585" rx="12" fill="#ffffff" stroke="#4a4a4a" stroke-width="2.4"/><rect x="110" y="105" width="1280" height="58" rx="12" fill="#edf4fb" stroke="#4a4a4a" stroke-width="2.4"/><text x="750" y="144" text-anchor="middle" font-size="26" font-weight="700" fill="#1f1f1f">水声信号识别系统</text><rect x="155" y="205" width="520" height="170" rx="8" fill="#f6f6f6" stroke="#4a4a4a" stroke-width="1.8"/><text x="415" y="238" text-anchor="middle" font-size="23" font-weight="700" fill="#1f1f1f">实时波形显示</text><path d="M200,305 C235,269 270,341 340,305 S410,269 480,305 S550,341 620,305" fill="none" stroke="#2f5f8f" stroke-width="3"/><rect x="155" y="420" width="520" height="210" rx="8" fill="#f6f6f6" stroke="#4a4a4a" stroke-width="1.8"/><text x="415" y="455" text-anchor="middle" font-size="23" font-weight="700" fill="#1f1f1f">STFT 时频图</text><rect x="300" y="490" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="326" y="490" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="352" y="490" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="378" y="490" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="404" y="490" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="430" y="490" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="456" y="490" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="482" y="490" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="300" y="512" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="326" y="512" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="352" y="512" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="378" y="512" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="404" y="512" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="430" y="512" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="456" y="512" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="482" y="512" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="300" y="534" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="326" y="534" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="352" y="534" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="378" y="534" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="404" y="534" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="430" y="534" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="456" y="534" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="482" y="534" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="300" y="556" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="326" y="556" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="352" y="556" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="378" y="556" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="404" y="556" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="430" y="556" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="456" y="556" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="482" y="556" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="300" y="578" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="326" y="578" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="352" y="578" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="378" y="578" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="404" y="578" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="430" y="578" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="456" y="578" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="482" y="578" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="300" y="600" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="326" y="600" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="352" y="600" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="378" y="600" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="404" y="600" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="430" y="600" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="456" y="600" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="482" y="600" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="300" y="622" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="326" y="622" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="352" y="622" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="378" y="622" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/>
+<rect x="404" y="622" width="24" height="20" fill="#f8fbff" stroke="#ffffff" stroke-width="1"/>
+<rect x="430" y="622" width="24" height="20" fill="#6f96bd" stroke="#ffffff" stroke-width="1"/>
+<rect x="456" y="622" width="24" height="20" fill="#aac6df" stroke="#ffffff" stroke-width="1"/>
+<rect x="482" y="622" width="24" height="20" fill="#dbe8f5" stroke="#ffffff" stroke-width="1"/><rect x="735" y="205" width="285" height="170" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="1.8"/><text x="878" y="240" text-anchor="middle" font-size="23" font-weight="700" fill="#1f1f1f">识别结果</text><text x="878" y="292" text-anchor="middle" font-size="24" font-weight="400" fill="#2f5f8f">目标类别：Class 3</text><text x="878" y="334" text-anchor="middle" font-size="24" font-weight="400" fill="#2f5f8f">置信度：0.92</text><rect x="1080" y="205" width="265" height="170" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="1.8"/><text x="1212" y="240" text-anchor="middle" font-size="23" font-weight="700" fill="#1f1f1f">运行控制</text><text x="1212" y="292" text-anchor="middle" font-size="22" font-weight="400" fill="#4c4c4c">单文件 / 伪实时</text><text x="1212" y="334" text-anchor="middle" font-size="22" font-weight="400" fill="#4c4c4c">开始  暂停  保存</text><rect x="735" y="420" width="610" height="210" rx="8" fill="#edf4fb" stroke="#4a4a4a" stroke-width="1.8"/><text x="1040" y="455" text-anchor="middle" font-size="23" font-weight="700" fill="#1f1f1f">结果日志</text><text x="790" y="505" text-anchor="start" font-size="21" font-weight="400" fill="#4c4c4c">时间戳        文件名        Top-1        置信度</text>
+<text x="790" y="541" text-anchor="start" font-size="21" font-weight="400" fill="#4c4c4c">16:45:02     sample_01     Class 3     0.92</text>
+<text x="790" y="577" text-anchor="start" font-size="21" font-weight="400" fill="#4c4c4c">16:45:06     sample_02     Class 5     0.87</text>
+</svg>

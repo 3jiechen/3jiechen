@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="76.0mm" viewBox="0 0 1500 760">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L11,6 L2,10 Z" fill="#4a4a4a"/>
+    </marker>
+    <style>
+      text { font-family: "SimSun", "Songti SC", "Noto Serif CJK SC", serif; dominant-baseline: alphabetic; }
+      rect, path, line, polyline { vector-effect: non-scaling-stroke; }
+    </style>
+  </defs>
+  <rect width="1500" height="760" fill="#ffffff"/>
+  <rect x="676" y="30" width="148" height="38" rx="19" fill="#edf4fb" stroke="#2f5f8f" stroke-width="1.6"/><text x="750" y="56" text-anchor="middle" font-size="20" font-weight="700" fill="#2f5f8f">数据预处理流程</text><rect x="70" y="145" width="220" height="130" rx="8" fill="#f6f6f6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="180" y="184" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">原始样本</text>
+<text x="180" y="221" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">11k8m/11k8m</text>
+<text x="180" y="251" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">子文件夹为类别</text>
+<text x="180" y="281" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">.mat 文件</text><rect x="350" y="145" width="220" height="130" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="460" y="184" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">波形读取</text>
+<text x="460" y="221" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">loadmat</text>
+<text x="460" y="251" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">展开为一维数组</text>
+<text x="460" y="281" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">标签编码</text><rect x="630" y="145" width="220" height="130" rx="8" fill="#edf4fb" stroke="#4a4a4a" stroke-width="2"/>
+<text x="740" y="184" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">长度统一</text>
+<text x="740" y="221" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">截断过长样本</text>
+<text x="740" y="251" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">短样本零填充</text>
+<text x="740" y="281" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">4096 点</text><rect x="910" y="145" width="220" height="130" rx="8" fill="#ffffff" stroke="#4a4a4a" stroke-width="2"/>
+<text x="1020" y="184" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">幅值处理</text>
+<text x="1020" y="221" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">零均值</text>
+<text x="1020" y="251" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">单位方差</text>
+<text x="1020" y="281" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">稳定优化</text><rect x="1190" y="145" width="220" height="130" rx="8" fill="#f6f6f6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="1300" y="184" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">噪声增强</text>
+<text x="1300" y="221" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">AWGN</text>
+<text x="1300" y="251" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">随机 SNR</text>
+<text x="1300" y="281" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">训练可选</text><line x1="290" y1="210" x2="350" y2="210" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="570" y1="210" x2="630" y2="210" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="850" y1="210" x2="910" y2="210" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="1130" y1="210" x2="1190" y2="210" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><line x1="1018" y1="275" x2="740" y2="430" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/>
+<text x="879" y="342" text-anchor="middle" font-size="18" font-weight="400" fill="#4c4c4c">时域输入</text><line x1="1300" y1="275" x2="1010" y2="430" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/>
+<text x="1155" y="342" text-anchor="middle" font-size="18" font-weight="400" fill="#4c4c4c">谱域输入</text><rect x="520" y="430" width="280" height="150" rx="8" fill="#eef7ef" stroke="#4a4a4a" stroke-width="2"/>
+<text x="660" y="469" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">Time Feature</text>
+<text x="660" y="506" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">张量形状：1 x 4096</text>
+<text x="660" y="536" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">输入 RNN1D / BiLSTM</text><rect x="940" y="430" width="280" height="150" rx="8" fill="#fff3e6" stroke="#4a4a4a" stroke-width="2"/>
+<text x="1080" y="469" text-anchor="middle" font-size="25" font-weight="700" fill="#1f1f1f">STFT Feature</text>
+<text x="1080" y="506" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">张量形状：2 x 64 x 64</text>
+<text x="1080" y="536" text-anchor="middle" font-size="21" font-weight="400" fill="#4c4c4c">输入 TinyCNN / ResNet</text><line x1="800" y1="505" x2="940" y2="505" stroke="#4a4a4a" stroke-width="2.4" marker-end="url(#arrow)"/><text x="870" y="548" text-anchor="middle" font-size="20" font-weight="400" fill="#4c4c4c">同一标签 y</text>
+</svg>
