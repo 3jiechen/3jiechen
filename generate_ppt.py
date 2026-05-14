@@ -871,6 +871,39 @@ def slide_architecture(prs, page_no):
                 text="两路特征在特征层拼接 (concat) 后送入全连接分类器，输出 9 类 Softmax 概率",
                 size=12, color=GREY)
 
+    # ---- Insert the matplotlib-rendered 3D architecture figure ----
+    import os
+    fig_path = os.path.join(os.path.dirname(__file__), "figs",
+                            "network_architecture.png")
+    if not os.path.exists(fig_path):
+        # try cwd fallback
+        fig_path = "figs/network_architecture.png"
+    if os.path.exists(fig_path):
+        img_left = Inches(0.5)
+        img_top = Inches(1.55)
+        img_w = Inches(12.33)
+        s.shapes.add_picture(fig_path, img_left, img_top, width=img_w)
+
+    # caption underneath
+    add_textbox(s, Inches(0.6), Inches(6.85), Inches(12.2), Inches(0.3),
+                text="图 3-2  Bi-LSTM × ResNet-18 双分支融合网络结构示意图（STFT 双通道输入 → Concat → FC → Softmax → 9 类）",
+                size=10, color=GREY, align=PP_ALIGN.CENTER, bold=True)
+
+    add_footer(s, prs, page_no=page_no)
+    return s
+
+
+def slide_architecture_simple(prs, page_no):
+    """Original block-flow architecture slide (kept for reference)."""
+    s = slide_blank(prs)
+    slide_background(s, prs, LIGHT_BG)
+    add_page_header(s, prs, "网络结构：STFT + ResNet + BiLSTM 融合模型", 2,
+                    "研究目标与内容")
+
+    add_textbox(s, Inches(0.6), Inches(1.1), Inches(12), Inches(0.45),
+                text="两路特征在特征层拼接 (concat) 后送入全连接分类器，输出 9 类 Softmax 概率",
+                size=12, color=GREY)
+
     # ------- diagram --------
     ix = Inches(0.4)
     def block(x, y, w, h, label, sub="", fill=OCEAN, text_color=WHITE,
