@@ -228,11 +228,7 @@ def draw_screen(ax, cx, cy, w=2.4, h=1.55):
         text(ax, bx + 0.19, by + 0.09, txt, size=7,
              color="white", bold=True)
 
-    # base / stand
-    rounded(ax, cx - 0.25, cy - h/2 - 0.04, 0.5, 0.08, fill="#0f1822",
-            radius=0.02, lw=0)
-    rounded(ax, cx - 0.6, cy - h/2 - 0.16, 1.2, 0.08, fill="#0f1822",
-            radius=0.03, lw=0)
+    # (base/stand removed to avoid overlapping the labels below)
 
 
 def draw_waveform_icon(ax, cx, cy, w=1.3, h=0.85, color=OCEAN):
