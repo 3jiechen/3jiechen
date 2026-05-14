@@ -1359,6 +1359,21 @@ def slide_deploy_rpi(prs, page_no):
                 text="PC 端训练 → ONNX 模型导出 → 树莓派 ONNX Runtime 端侧推理 → Tk 界面显示",
                 size=12, color=GREY)
 
+    # Insert deployment schematic figure
+    import os
+    fig_path = os.path.join(os.path.dirname(__file__), "figs",
+                            "deployment_system.png")
+    if not os.path.exists(fig_path):
+        fig_path = "figs/deployment_system.png"
+    if os.path.exists(fig_path):
+        s.shapes.add_picture(fig_path, Inches(0.45), Inches(1.6),
+                             width=Inches(12.45))
+        add_textbox(s, Inches(0.6), Inches(7.0), Inches(12.2), Inches(0.25),
+                    text="图 3-3  树莓派端部署系统示意图（PC 训练 → ONNX → 树莓派推理 → 结果显示）",
+                    size=10, color=GREY, align=PP_ALIGN.CENTER, bold=True)
+        add_footer(s, prs, page_no=page_no)
+        return s
+
     # Pipeline
     stages = [
         ("数据采集",   "ADC / 文件回放\n4096 点窗口", OCEAN),
