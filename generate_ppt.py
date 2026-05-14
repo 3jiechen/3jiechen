@@ -1852,9 +1852,9 @@ def slide_results_table(prs, page_no):
                 text="表 4-1  不同模型在独立测试集上的整体分类准确率",
                 size=13, bold=True, color=NAVY)
 
-    # Table panel
+    # Table panel (shorter to leave room for the conclusion strip below)
     px = Inches(0.6); py = Inches(1.7)
-    pw = Inches(8.2); ph = Inches(5.4)
+    pw = Inches(8.2); ph = Inches(3.95)
     panel = add_rect(s, px, py, pw, ph, fill=WHITE,
                      shape=MSO_SHAPE.ROUNDED_RECTANGLE)
     panel.adjustments[0] = 0.03
@@ -1884,9 +1884,9 @@ def slide_results_table(prs, page_no):
                     align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
         acc += cw
     # rows -- with bar in the rightmost column
-    rh = Inches(0.7)
+    rh = Inches(0.48)
     for i, (mname, mfeat, mpct, mcol) in enumerate(rows):
-        ry_ = hy + hh + Inches(0.15) + (rh + Inches(0.08)) * i
+        ry_ = hy + hh + Inches(0.1) + (rh + Inches(0.06)) * i
         bg = PANEL if i % 2 == 0 else WHITE
         row = add_rect(s, hx, ry_, hw, rh, fill=bg,
                        shape=MSO_SHAPE.ROUNDED_RECTANGLE)
@@ -1895,23 +1895,23 @@ def slide_results_table(prs, page_no):
         disable_shadow(row)
         # model name
         add_textbox(s, hx + Inches(0.2), ry_, hw * cols[0][1], rh,
-                    text=mname, size=13, bold=True, color=NAVY,
+                    text=mname, size=12, bold=True, color=NAVY,
                     anchor=MSO_ANCHOR.MIDDLE)
         # feature
         add_textbox(s, hx + hw * cols[0][1], ry_, hw * cols[1][1], rh,
-                    text=mfeat, size=12, color=DARK,
+                    text=mfeat, size=11, color=DARK,
                     anchor=MSO_ANCHOR.MIDDLE, align=PP_ALIGN.CENTER)
         # bar
         bar_x = hx + hw * (cols[0][1] + cols[1][1]) + Inches(0.1)
         bar_full = hw * cols[2][1] - Inches(1.2)
-        bar_track = add_rect(s, bar_x, ry_ + Inches(0.2),
-                             bar_full, Inches(0.3), fill=PANEL,
+        bar_track = add_rect(s, bar_x, ry_ + Inches(0.14),
+                             bar_full, Inches(0.24), fill=PANEL,
                              shape=MSO_SHAPE.ROUNDED_RECTANGLE)
         bar_track.adjustments[0] = 0.4
         bar_track.line.fill.background()
         disable_shadow(bar_track)
-        bar = add_rect(s, bar_x, ry_ + Inches(0.2),
-                       bar_full * (mpct / 100.0), Inches(0.3), fill=mcol,
+        bar = add_rect(s, bar_x, ry_ + Inches(0.14),
+                       bar_full * (mpct / 100.0), Inches(0.24), fill=mcol,
                        shape=MSO_SHAPE.ROUNDED_RECTANGLE)
         bar.adjustments[0] = 0.4
         disable_shadow(bar)
@@ -1922,40 +1922,103 @@ def slide_results_table(prs, page_no):
 
     # right info card -- key takeaway
     rx = Inches(9.0); ry = Inches(1.7)
-    rw = Inches(4.35); rh2 = Inches(5.4)
+    rw = Inches(4.35); rh2 = Inches(3.95)
     card = add_rect(s, rx, ry, rw, rh2, fill=NAVY,
                     shape=MSO_SHAPE.ROUNDED_RECTANGLE)
     card.adjustments[0] = 0.04
     disable_shadow(card)
     # decorative
-    deco = add_rect(s, rx + rw - Inches(1.2), ry + Inches(0.2),
-                    Inches(1.0), Inches(1.0), fill=OCEAN,
+    deco = add_rect(s, rx + rw - Inches(1.2), ry + Inches(0.15),
+                    Inches(0.85), Inches(0.85), fill=OCEAN,
                     shape=MSO_SHAPE.OVAL)
     disable_shadow(deco)
-    deco2 = add_rect(s, rx + rw - Inches(1.4), ry + Inches(0.6),
-                     Inches(0.6), Inches(0.6), fill=ACCENT,
+    deco2 = add_rect(s, rx + rw - Inches(1.4), ry + Inches(0.5),
+                     Inches(0.5), Inches(0.5), fill=ACCENT,
                      shape=MSO_SHAPE.OVAL)
     disable_shadow(deco2)
 
-    add_textbox(s, rx + Inches(0.35), ry + Inches(0.35),
-                rw - Inches(0.7), Inches(0.4),
+    add_textbox(s, rx + Inches(0.35), ry + Inches(0.3),
+                rw - Inches(0.7), Inches(0.35),
                 text="KEY  RESULT", size=11, bold=True, color=CYAN,
                 font=EN_FONT)
-    add_textbox(s, rx + Inches(0.35), ry + Inches(0.8),
-                rw - Inches(0.7), Inches(1.2),
-                text="91.4%", size=64, bold=True, color=WHITE,
+    add_textbox(s, rx + Inches(0.35), ry + Inches(0.65),
+                rw - Inches(0.7), Inches(1.1),
+                text="91.4%", size=54, bold=True, color=WHITE,
                 font=EN_FONT)
-    add_textbox(s, rx + Inches(0.35), ry + Inches(2.2),
-                rw - Inches(0.7), Inches(0.6),
+    add_textbox(s, rx + Inches(0.35), ry + Inches(1.85),
+                rw - Inches(0.7), Inches(0.5),
                 text="STFT+ResNet+RNN 融合模型",
-                size=14, bold=True, color=WHITE)
-    add_textbox(s, rx + Inches(0.35), ry + Inches(2.8),
-                rw - Inches(0.7), Inches(2.4),
+                size=13, bold=True, color=WHITE)
+    add_textbox(s, rx + Inches(0.35), ry + Inches(2.15),
+                rw - Inches(0.7), Inches(1.7),
                 text="• 较单一时域 RNN 提升 +20.4 pp\n"
                      "• 较 STFT+ResNet 提升 +12.1 pp\n"
                      "• 较 STFT+CNN+RNN 提升 +10.6 pp\n"
                      "• 在所有对比模型中表现最佳",
-                size=13, color=CYAN, line_spacing=1.6)
+                size=11, color=CYAN, line_spacing=1.5)
+
+    # ====== Bottom: 对比结论 strip (4 progressive findings) ======
+    cy = Inches(5.8)
+    cw_total = Inches(12.73)
+    ccx = Inches(0.3)
+    # title bar
+    title_bar = add_rect(s, ccx, cy, cw_total, Inches(0.38),
+                         fill=NAVY, shape=MSO_SHAPE.ROUNDED_RECTANGLE)
+    title_bar.adjustments[0] = 0.25
+    disable_shadow(title_bar)
+    add_textbox(s, ccx + Inches(0.25), cy, Inches(3.2), Inches(0.38),
+                text="◆  对  比  结  论",
+                size=12, bold=True, color=WHITE,
+                anchor=MSO_ANCHOR.MIDDLE)
+    add_textbox(s, ccx + Inches(3.2), cy, Inches(6), Inches(0.38),
+                text="COMPARATIVE  FINDINGS",
+                size=10, bold=True, color=CYAN, font=EN_FONT,
+                anchor=MSO_ANCHOR.MIDDLE)
+
+    # 4 finding cards in a row
+    findings = [
+        ("①", "时域单特征受限",
+         "仅一维波形 71.0%  难以稳定区分相近调制",
+         OCEAN),
+        ("②", "时频特征更稳健",
+         "STFT  79.3% > 76.2% > 71%   ResNet 优于 TinyCNN",
+         AZURE),
+        ("③", "双特征融合互补",
+         "时域 + 时频  80.8% / 91.4%  >  任一单特征",
+         TEAL),
+        ("④", "本文方案最优",
+         "91.4%   验证 ResNet + Bi-LSTM 融合的有效性",
+         ACCENT_2),
+    ]
+    fy = cy + Inches(0.48)
+    fh = Inches(0.82)
+    fw = (cw_total - Inches(0.45)) / 4
+    gap = Inches(0.15)
+    for i, (num, h, t, col) in enumerate(findings):
+        x = ccx + (fw + gap) * i + Inches(0.1)
+        card_f = add_rect(s, x, fy, fw, fh, fill=WHITE,
+                          shape=MSO_SHAPE.ROUNDED_RECTANGLE)
+        card_f.adjustments[0] = 0.1
+        card_f.line.color.rgb = PANEL
+        disable_shadow(card_f)
+        # left accent
+        acc_bar = add_rect(s, x, fy, Inches(0.12), fh, fill=col,
+                           shape=MSO_SHAPE.ROUNDED_RECTANGLE)
+        acc_bar.adjustments[0] = 0.4
+        disable_shadow(acc_bar)
+        # number
+        add_textbox(s, x + Inches(0.2), fy + Inches(0.04),
+                    Inches(0.45), Inches(0.36),
+                    text=num, size=16, bold=True, color=col,
+                    font=EN_FONT, anchor=MSO_ANCHOR.MIDDLE)
+        add_textbox(s, x + Inches(0.6), fy + Inches(0.04),
+                    fw - Inches(0.7), Inches(0.36),
+                    text=h, size=12, bold=True, color=NAVY,
+                    anchor=MSO_ANCHOR.MIDDLE)
+        add_textbox(s, x + Inches(0.25), fy + Inches(0.42),
+                    fw - Inches(0.4), Inches(0.4),
+                    text=t, size=9.5, color=DARK, line_spacing=1.2,
+                    anchor=MSO_ANCHOR.TOP)
 
     add_footer(s, prs, page_no=page_no)
     return s
