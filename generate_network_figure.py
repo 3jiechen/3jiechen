@@ -335,12 +335,12 @@ def build_figure(out_path="figs/network_architecture.png"):
                 label_top_size=8.5,
                 label_bottom="谱图特征\nf_s", label_bottom_color="#0d5e4c",
                 label_bottom_dy=0.5)
-    arrow(ax, (gap_x + 0.85 + 0.5, gap_y + 0.85/2 + 0.15),
+    arrow(ax, (gap_x + 0.85 + 0.2, gap_y + 0.85/2 + 0.12),
               (fs_x - 0.05, fs_y + 1.55/2),
           color="#444", lw=1.5)
 
     # ---------- CONCAT (cross-feature) ----------
-    cc_x = 9.3
+    cc_x = 10.4
     # bracket vertical from f_t (top) and f_s (bottom) into concat block
     cc_y_top = top_y_base + 0.35       # match f_t bottom
     cc_y_bot = bot_y_base + 0.25       # match f_s bottom
@@ -356,7 +356,7 @@ def build_figure(out_path="figs/network_architecture.png"):
                     label_bottom="Feature Concat\n[ f_t ; f_s ]",
                     label_bottom_color="#7a1f1f", label_bottom_dy=0.5)
 
-    # arrows from f_t into concat
+    # arrows from f_t / f_s into concat
     p1 = (ft_x + 0.45 + 0.2, ft_y + 1.55/2 + 0.22)
     p2 = (cc_block_x - 0.05, cc_block_y_bottom + cc_block_h - 0.5)
     arrow(ax, p1, p2, color="#444", lw=1.5, rad=-0.18)
@@ -365,7 +365,7 @@ def build_figure(out_path="figs/network_architecture.png"):
     arrow(ax, p1b, p2b, color="#444", lw=1.5, rad=0.18)
 
     # ---------- FC tall thin block ----------
-    fc_x = 11.6
+    fc_x = 12.6
     fc_h = 4.2
     fc_y = 5 - fc_h/2 + 0.1
     fc = cuboid(ax, fc_x, fc_y, 0.55, fc_h, depth=0.5,
